@@ -26,6 +26,11 @@ function App() {
   
   //Daniel: além de servir como apoio, ela elimina qualquer duplicidade de cadastro pelo Set.
   const auxPokemon = [...new Set(pokemons)]
+
+  //Daniel: condicional criada para que a função browserPokemon seja atualizada toda vez que o usuário entrar na Home.
+  if (pokemons.length > 0){
+    return
+  }else{
   
   while (i <= 20){
     try{
@@ -43,19 +48,38 @@ function App() {
         console.log(error)
     }
     i++
+    }
+    }
   }
-}
 
+  //Daniel: função para acrescentar pokemon na Pokelist.
   function addPokemonPokedex (pokemonAdd){
-    const pokemonOnPokedex = pokemons.filter(
-      (pokemon) => pokemon.id === pokemonAdd.id
-    )
-      console.log("pokemonOnPokedex", pokemonOnPokedex)
+    const pokemonOnList = pokemons.filter(
+      (pokemon) => pokemon.id !== pokemonAdd.id)
 
-      const newBrowserPokemon = [...pokedex, pokemonAdd]
-      setPokedex(newBrowserPokemon)
+      const newBrowserPokedex = [...pokedex, pokemonAdd]
+      setPokedex(newBrowserPokedex)
+      setPokemons(pokemonOnList)
          
     console.log("pokedex", pokedex)
+  }
+
+  //Daniel: validar
+  function removePokemonPokedex (pokemonAdd){
+    const pokemonOnList = pokedex.filter(
+      (pokemon) => pokemon.id === pokemonAdd.id)
+    
+    const pokemonOnPokedex = pokedex.filter(
+      (pokemon) => pokemon.id !== pokemonAdd.id)
+
+      console.log("Pokedex Remover", pokedex)
+      console.log("Pokemons Remover", pokemons)
+    
+    const newBrowserPokelist = [...pokemons, pokemonOnList]
+    console.log("newBrowser",newBrowserPokelist)
+    setPokedex(pokemonOnPokedex)
+    //Daniel: Verificar pq o código está quebrando ao carregar a nova lista de pokemons
+    // setPokemons(newBrowserPokelist) 
   }
 
   const context = {
@@ -66,6 +90,7 @@ function App() {
     isLoading,
     setIsLoading,
     addPokemonPokedex,
+    removePokemonPokedex,
   }
 
   return (

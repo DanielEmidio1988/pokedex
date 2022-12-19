@@ -1,6 +1,6 @@
 import logo from "../../assets/logo-pokedex.svg"
 import {MainHeader, ButtonPokedex} from "./styleHeader"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { goToPokedex } from "../../routes/coordinator";
 
 //logo pokemon
@@ -12,6 +12,7 @@ import { goToPokedex } from "../../routes/coordinator";
 function Header() {
 
   const navigate = useNavigate()
+  const location = useLocation()
 
 
     return (
