@@ -46,6 +46,18 @@ function App() {
   }
 }
 
+  function addPokemonPokedex (pokemonAdd){
+    const pokemonOnPokedex = pokemons.filter(
+      (pokemon) => pokemon.id === pokemonAdd.id
+    )
+      console.log("pokemonOnPokedex", pokemonOnPokedex)
+
+      const newBrowserPokemon = [...pokedex, pokemonAdd]
+      setPokedex(newBrowserPokemon)
+         
+    console.log("pokedex", pokedex)
+  }
+
   const context = {
     pokemons,
     setPokemons,
@@ -53,6 +65,7 @@ function App() {
     setPokedex,
     isLoading,
     setIsLoading,
+    addPokemonPokedex,
   }
 
   return (
