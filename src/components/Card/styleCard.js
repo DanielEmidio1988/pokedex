@@ -32,6 +32,10 @@ export const MainCard = styled.div`
         font-family: "Poppins"
         font-size: 16px;
     }
+
+    button:hover{
+        cursor: pointer;
+    }
     `
 
     export const CardTop = styled.div`
@@ -44,7 +48,7 @@ export const MainCard = styled.div`
             font-weight: bold;
         }
 
-        h1{
+        h2{
             padding-left: 20px;
             font-size: 28px;
             font-weight: bold;

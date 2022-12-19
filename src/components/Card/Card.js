@@ -25,11 +25,6 @@ function Card(props) {
 
     const context = useContext(GlobalContext)
     console.log('props', props)
-    // const typePokemon = props.pokemons.types.map((type)=> {return type.type.name})
-
-    // console.log("typePokemon",typePokemon)
-       
-    console.log("Pokemons", context.pokemons)
 
     const colorCard = ()=>{
         switch (props.pokemon.types[0].type.name) {
@@ -102,7 +97,7 @@ function Card(props) {
                 <CardTop>
                     <div>
                         <p>#{props.pokemon.id}</p>
-                        <h1>{props.pokemon.name}</h1>
+                        <h2>{props.pokemon.name}</h2>
                         <span>
                         <CardType>{props.pokemon.types.map((type)=> {
                             switch (type.type.name) {
@@ -177,7 +172,7 @@ function Card(props) {
                 </CardTop>
                 <CardBottom>
                     <span><a onClick={""}>Detalhes</a></span>
-                    <button>Capturar!</button>
+                    <button onClick={()=>context.addPokemonPokedex(props.pokemon)}>Capturar!</button>
     
                 </CardBottom>
             </MainCard>
