@@ -5,7 +5,7 @@ export const MainCard = styled.div`
     width: 440px;
     height: 210px;
     border-radius: 12px;
-    background-color: #729F92;
+    background-color: ${props => props.colorCard};
     font-family: "Inter";
     color: white;
     margin-top: 30px;
@@ -49,16 +49,7 @@ export const MainCard = styled.div`
             font-size: 28px;
             font-weight: bold;
         }
-        
-        img{
-            width: 193px;
-            margin-left: 100px;
-            margin-top: -50px;
-        }
 
-        span:first-child{
-            padding-left: 20px;
-        }
         `
 
     export const CardBottom = styled.div`
@@ -67,3 +58,18 @@ export const MainCard = styled.div`
         padding-left: 20px;
         padding-right: 20px;
         `
+    export const CardType = styled.span`
+        display: flex;
+        margin-top: 8px;
+        padding-left: 20px;
+
+        img{
+            width: 99px;
+            height: 31px;
+        }
+        `
+    export const SpriteOficialPokemon = styled.img`  
+            width: 193px;
+            margin-left: 40px;
+            margin-top: -50px;       
+    `

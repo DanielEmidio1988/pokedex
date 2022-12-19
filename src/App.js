@@ -44,9 +44,7 @@ function App() {
     }
     i++
   }
-  
 }
-
 
   const context = {
     pokemons,
