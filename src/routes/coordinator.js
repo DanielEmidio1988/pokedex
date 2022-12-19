@@ -5,3 +5,7 @@ export function goToHome(navigate){
 export function goToPokedex(navigate){
     navigate("/pokedex")
 }
+
+export function goToDetails(navigate){
+    navigate("/:idPokemon")
+}
