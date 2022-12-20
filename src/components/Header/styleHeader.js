@@ -16,6 +16,17 @@ export const MainHeader = styled.div`
         justify-content: center;
         align-items: center;
         width: 33.33%;        
+    }
+    
+    a{
+        font-family: 'Poppins';
+        text-decoration-line: underline;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    a:hover{
+        cursor:pointer;
     }`
 
 export const ButtonPokedex = styled.button`

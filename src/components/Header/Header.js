@@ -1,7 +1,7 @@
 import logo from "../../assets/logo-pokedex.svg"
 import {MainHeader, ButtonPokedex} from "./styleHeader"
 import { useNavigate, useLocation } from "react-router-dom";
-import { goToPokedex } from "../../routes/coordinator";
+import { goToPokedex, goToHome } from "../../routes/coordinator";
 
 //logo pokemon
 // Width 307px
@@ -18,9 +18,18 @@ function Header() {
     return (
       <>
         <MainHeader>
-          <div></div>
+          
+          <div>
+            {location.pathname === "/pokedex" ?
+            <a onClick={(()=>goToHome(navigate))}>Todos os Pokemons</a> 
+           :''}
+          </div>
           <div><img src={logo} alt="logo-pokedex"/></div>
-          <div><ButtonPokedex onClick={()=>goToPokedex(navigate)}>Pokédex</ButtonPokedex></div>
+          <div>
+            {location.pathname === "/" ?
+              <ButtonPokedex onClick={()=>goToPokedex(navigate)}>Pokédex</ButtonPokedex>
+            :''}
+          </div>
             
         </MainHeader>
       </>

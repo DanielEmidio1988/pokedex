@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { goToDetails } from "../../routes/coordinator";
 import { MainCard, CardTop, CardBottom, CardType, SpriteOficialPokemon } from "./styleCard";
 import fire from "../../assets/typepokemon/fire.svg"
 import grass from "../../assets/typepokemon/grass.svg"
@@ -26,8 +27,7 @@ function Card(props) {
 
     const context = useContext(GlobalContext)
     const location = useLocation()
-
-    console.log('props', props)
+    const navigate = useNavigate()
 
     const colorCard = ()=>{
         switch (props.pokemon.types[0].type.name) {
@@ -174,12 +174,12 @@ function Card(props) {
                     </div>
                 </CardTop>
                 <CardBottom>
-                    <span><a onClick={""}>Detalhes</a></span>
+                    <span><a onClick={()=>goToDetails(navigate)}>Detalhes</a></span>
                     {location.pathname === "/" ?
                     <button onClick={()=>context.addPokemonPokedex(props.pokemon)}>Capturar!</button>
                     :
                     <button onClick={()=>context.removePokemonPokedex(props.pokemon)}>Remover Pokemon!</button> }
-                </CardBottom> : 
+                </CardBottom>  
             </MainCard>
             
       </>
