@@ -60,26 +60,21 @@ function App() {
       const newBrowserPokedex = [...pokedex, pokemonAdd]
       setPokedex(newBrowserPokedex)
       setPokemons(pokemonOnList)
-         
-    console.log("pokedex", pokedex)
+    console.log("Adicionar Pokemon", pokemonOnList)
+    console.log("Pokedex", pokedex)
   }
 
-  //Daniel: validar
+  //Daniel: remover pokemon da Pokedex
   function removePokemonPokedex (pokemonAdd){
-    const pokemonOnList = pokedex.filter(
-      (pokemon) => pokemon.id === pokemonAdd.id)
     
     const pokemonOnPokedex = pokedex.filter(
       (pokemon) => pokemon.id !== pokemonAdd.id)
-
-      console.log("Pokedex Remover", pokedex)
-      console.log("Pokemons Remover", pokemons)
     
-    const newBrowserPokelist = [...pokemons, pokemonOnList]
+    const newBrowserPokelist = [...pokemons, pokemonAdd]
     console.log("newBrowser",newBrowserPokelist)
     setPokedex(pokemonOnPokedex)
-    //Daniel: Verificar pq o código está quebrando ao carregar a nova lista de pokemons
-    // setPokemons(newBrowserPokelist) 
+  
+    setPokemons(newBrowserPokelist) 
   }
 
   const context = {

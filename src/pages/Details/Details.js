@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import Card from "../../components/Card/Card";
+
 import Header from "../../components/Header/Header";
 import { MainContainer, DisplayCards } from "../../constants/stylePages";
 

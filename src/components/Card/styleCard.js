@@ -17,6 +17,7 @@ export const MainCard = styled.div`
     a{
         font-family: "Poppins";
         font-weight: bold;
+        text-decoration-line: underline;
     }
 
     a:hover{
