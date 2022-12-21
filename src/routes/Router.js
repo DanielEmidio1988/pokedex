@@ -10,7 +10,7 @@ return (
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/pokedex" element={<Pokedex/>}/>
-                <Route path="/:idPokemon" element={<Details/>}/>
+                <Route path="/:PokemonName" element={<Details/>}/>
             </Routes>
         </BrowserRouter>   
     );

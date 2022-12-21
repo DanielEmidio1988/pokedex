@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useNavigate, useLocation } from "react-router-dom";
-import { goToDetails } from "../../routes/coordinator";
-import { MainCard, CardTop, CardBottom, CardType, SpriteOficialPokemon } from "./styleCard";
+import {MainCardDetails, DisplayPokemon, DisplayBaseStats, DisplayNameMove, DisplaySpritePokemon} from "./styleCardDetails"
 import fire from "../../assets/typepokemon/fire.svg"
 import grass from "../../assets/typepokemon/grass.svg"
 import bug from "../../assets/typepokemon/bug.svg"
@@ -21,9 +20,9 @@ import psychic from "../../assets/typepokemon/psychic.svg"
 import rock from "../../assets/typepokemon/steel.svg"
 import steel from "../../assets/typepokemon/steel.svg"
 import water from "../../assets/typepokemon/water.svg"
+import axios from "axios";
 
-
-function Card(props) {
+function CardDetails(props) {
 
     const context = useContext(GlobalContext)
     const location = useLocation()
@@ -93,8 +92,119 @@ function Card(props) {
     
     return (
       <>
+
+      <MainCardDetails>
+
+        {/* SEÇÃO SPRITES POKEMON */}
+        <DisplayPokemon>
+            <div>
+                <img src={props.pokemon.sprites?.front_default} alt={props.pokemon.name}/>
+            </div>
+            <div>
+                <img src={props.pokemon.sprites?.back_default} alt={props.pokemon.name}/>
+            </div>
+
+        </DisplayPokemon>
+
+        {/* SEÇÃO STATUS POKEMON */}
+        <DisplayBaseStats>
+            <div>
+            <h2>Base stats</h2>
+            {props.pokemon.stats?.map((status)=>(
+                <p><span>{status.stat.name}</span><span>{status.base_stat}</span><span>Barra</span></p>
+            ))}
+            </div>
+        </DisplayBaseStats>
+
+        {/* SEÇÃO NOME/TIPO E MOVES POKEMON */}
+        <DisplayNameMove>
+            <div>
+                <h3>#{props.pokemon?.id}</h3>
+                <h1>{props.pokemon?.name}</h1>
+                <p>{props.pokemon.types?.map((type)=> {
+                            switch (type.type.name) {
+                                case 'grass':
+                                    return <img src={grass} alt={type.type.name}/>
+                                    break;
+                                    case 'fire': 
+                                    return <img src={fire} alt={type.type.name}/>
+                                    break;
+                                    case 'water':
+                                    return <img src={water} alt={type.type.name}/>
+                                    break;
+                                    case 'poison':
+                                    return <img src={poison} alt={type.type.name}/>  
+                                    break; 
+                                    case 'flying':
+                                    return <img src={flying} alt={type.type.name}/>  
+                                    break;
+                                    case 'bug':
+                                    return <img src={bug} alt={type.type.name}/>
+                                    break;
+                                    case 'normal':
+                                    return <img src={normal} alt={type.type.name}/>   
+                                    break;
+                                    case 'dark':
+                                    return <img src={dark} alt={type.type.name}/>   
+                                    break;
+                                    case 'dragon':
+                                    return <img src={dragon} alt={type.type.name}/>   
+                                    break;
+                                    case 'eletric':
+                                    return <img src={eletric} alt={type.type.name}/>  
+                                    break; 
+                                    case 'fairy':
+                                    return <img src={fairy} alt={type.type.name}/>  
+                                    break;
+                                    case 'fighting':
+                                    return <img src={fighting} alt={type.type.name}/>   
+                                    break;
+                                    case 'ghost':
+                                    return <img src={ghost} alt={type.type.name}/>   
+                                    break;
+                                    case 'ground':
+                                    return <img src={ground} alt={type.type.name}/>   
+                                    break;            
+                                    case 'ice':
+                                    return <img src={ice} alt={type.type.name}/>   
+                                    break;
+                                    case 'psychic':
+                                    return <img src={psychic} alt={type.type.name}/>   
+                                    break;
+                                    case 'rock':
+                                    return <img src={rock} alt={type.type.name}/>   
+                                    break;
+                                    case 'steel':
+                                    return <img src={steel} alt={type.type.name}/>   
+                                    break;                        
+                                    default:
+                                    return <img src={""} alt={type.type.name}/>
+                                        break;
+                            }
+                         
+                         }
+                         )}
+                         </p>
+            </div>
+            <div>
+                    <h2>Moves:</h2>
+                    {/* <p>{props.pokemon?.moves[0].move.name}</p>
+                    <p>{props.pokemon?.moves[1].move.name}</p>
+                    <p>{props.pokemon?.moves[2].move.name}</p>
+                    <p>{props.pokemon?.moves[3].move.name}</p> */}
+            </div>
+        </DisplayNameMove>
+
+        {/* SEÇÃO ARTE OFICIAL POKEMON */}
+        <DisplaySpritePokemon>
+            <img src={props.pokemon.sprites?.other['official-artwork'].front_default} alt="pokemon"/>
+        </DisplaySpritePokemon>
+
+      </MainCardDetails>
+
+        
     
-                <MainCard key={props.pokemon.id}
+                {/* <MainCard key={props.pokemon.id}
                 colorCard={colorCard}>
 
                 <CardTop>
@@ -166,24 +276,23 @@ function Card(props) {
                          }
                          )}</CardType>
                          </span>
-                        {/* <span>{props.pokemon.types.map((type)=> {return <img src={type.type.name} alt={type.type.name}/> })}</span> */}
-                        {/* <span>{props.pokemon.types.map((type)=> {return <span>{type.type.name}</span> })}</span> */}
+                        
                     </div>
                     <div>
-                        <SpriteOficialPokemon src={props.pokemon.sprites?.other['official-artwork'].front_default} alt="pokemon"/>
+                        <SpriteOficialPokemon src={props.pokemon.sprites.other['official-artwork'].front_default} alt="pokemon"/>
                     </div>
                 </CardTop>
                 <CardBottom>
-                    <span><a onClick={()=>goToDetails(navigate, props.pokemon.name)}>Detalhes</a></span>
+                    <span><a onClick={()=>goToDetails(navigate)}>Detalhes</a></span>
                     {location.pathname === "/" ?
                     <button onClick={()=>context.addPokemonPokedex(props.pokemon)}>Capturar!</button>
                     :
                     <button onClick={()=>context.removePokemonPokedex(props.pokemon)}>Remover Pokemon!</button> }
                 </CardBottom>  
-            </MainCard>
+            </MainCard> */}
             
       </>
     );
   }
   
-  export default Card
+  export default CardDetails
