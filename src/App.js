@@ -42,7 +42,6 @@ function App() {
         auxPokemon.push(response.data)
         setPokemons(auxPokemon)
         console.log(`${response.data.name} adicionado com sucesso a base!`)
-        console.log("Pokemon na Base: ", pokemons)
     }catch(error){
         console.log(`Erro!${error.data.name} não foi adicionado a base.`)
         console.log(error)

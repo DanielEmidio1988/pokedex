@@ -6,6 +6,6 @@ export function goToPokedex(navigate){
     navigate("/pokedex")
 }
 
-export function goToDetails(navigate){
-    navigate("/:idPokemon")
+export function goToDetails(navigate, pokemonName){
+    navigate(`/${pokemonName}`)
 }
