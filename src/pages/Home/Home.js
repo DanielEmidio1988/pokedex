@@ -15,7 +15,7 @@ function Home() {
           <MainContainer>
           <div><h1>Todos Pokemons</h1></div>
           <DisplayCards>
-            {pokemons.map((pokemon)=>( 
+            {pokemons && pokemons.map((pokemon)=>( 
             <Card
             key={pokemon.id}
             pokemon={pokemon}/>

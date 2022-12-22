@@ -22,14 +22,16 @@ function Details() {
     browserPokemon(pokeName)
   },[])
 
+
+
 const browserPokemon = async ()=> {
-    try{
-    const response = await axios.get(`${BASE_URL}/${pokeName}`)
-    console.log("response", response.data)
-    setDetailPokemon(response.data) 
-    }catch(error){
-        console.log(error)
-    }
+  try{
+  const response = await axios.get(`${BASE_URL}/${pokeName}`)
+  console.log("response", response.data)
+  setDetailPokemon(response.data) 
+  }catch(error){
+      console.log(error)
+  }
 }
 
     return (
@@ -41,7 +43,7 @@ const browserPokemon = async ()=> {
 
             <CardDetails
             key={detailPokemon.id}
-            pokemon={detailPokemon}/>
+            pokemon={detailPokemon && detailPokemon}/>
 
           </DisplayCards>  
         </MainContainer>
