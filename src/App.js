@@ -17,12 +17,16 @@ function App() {
   //Daniel: variavel utilizada para armazenar status de loading
   const [isLoading, setIsLoading] = useState(false)
 
+  //Daniel: variavel para armazenar os detalhes do pokemon
+  const [detailPokemon, setDetailPokemon] = useState([])
+
   useEffect(()=>{
     browserPokemon()
   },[])
 
   const browserPokemon = async ()=>{
   let i = 1  
+  setIsLoading(true)
   
   //Daniel: além de servir como apoio, ela elimina qualquer duplicidade de cadastro pelo Set.
   const auxPokemon = [...new Set(pokemons)]
@@ -36,18 +40,20 @@ function App() {
     try{
         
         //Daniel: basicamente, de todos formulários, encontrarei o que preciso no endpoint pokemon/id do pokemon
-        //A arte oficial está dentro de sprites/other/official-artwork.
+        
         //Dentro da pasta de sprites, terá o sprite dos games, que também vou utilizar em detalhes.
         const response = await axios.get(`${BASE_URL}/${i}`)
         auxPokemon.push(response.data)
         setPokemons(auxPokemon)
-        console.log(`${response.data.name} adicionado com sucesso a base!`)
+        setDetailPokemon(auxPokemon)
+        console.log(`${response.data.name} adicionado com sucesso a base!`)      
     }catch(error){
         console.log(`Erro!${error.data.name} não foi adicionado a base.`)
         console.log(error)
     }
     i++
     }
+    setIsLoading(false)
     }
   }
 
@@ -79,6 +85,8 @@ function App() {
   const context = {
     pokemons,
     setPokemons,
+    detailPokemon,
+    setDetailPokemon,
     pokedex,
     setPokedex,
     isLoading,
