@@ -72,12 +72,12 @@ export const DisplayPokemon = styled.div`
   export const BarStats = styled.span`
     border-radius: 8px;
     height: 10px;
-    border: 1px solid black;
+    // border: 1px solid black;
     
     div{
-        border: 1px solid black;
-        width: 60%;
-        background-color: orange;
+        border: 1px solid ${props => props.stats < 50 ? 'red' :props.stats < 99? 'orange':'#73AC31'};
+        width: ${props => (props.stats/100)*100}%;
+        background-color: ${props => props.stats < 50 ? '#FF7B2E' :props.stats < 99? '#FFDD69':'#B5E61D'};
         border-radius: 8px;
         height: 100%;
     }

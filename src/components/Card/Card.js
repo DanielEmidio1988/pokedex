@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { goToDetails } from "../../routes/coordinator";
-import { MainCard, CardTop, CardBottom, CardType, SpriteOficialPokemon } from "./styleCard";
+import { MainCard, CardTop, CardBottom, CardType, SpriteOficialPokemon, ButtonDeletePokemon, AddPokemon } from "./styleCard";
 import fire from "../../assets/typepokemon/fire.svg"
 import grass from "../../assets/typepokemon/grass.svg"
 import bug from "../../assets/typepokemon/bug.svg"
@@ -93,94 +93,97 @@ function Card(props) {
     
     return (
       <>
-    
-                <MainCard key={props.pokemon.id}
-                colorCard={colorCard}>
 
-                <CardTop>
-                    <div>
-                        <p>#{props.pokemon.id}</p>
-                        <h2>{props.pokemon.name}</h2>
-                        <span>
-                        <CardType>{props.pokemon.types.map((type)=> {
-                            switch (type.type.name) {
-                                case 'grass':
-                                    return <img src={grass} alt={type.type.name}/>
-                                    break;
-                                    case 'fire': 
-                                    return <img src={fire} alt={type.type.name}/>
-                                    break;
-                                    case 'water':
-                                    return <img src={water} alt={type.type.name}/>
-                                    break;
-                                    case 'poison':
-                                    return <img src={poison} alt={type.type.name}/>  
-                                    break; 
-                                    case 'flying':
-                                    return <img src={flying} alt={type.type.name}/>  
-                                    break;
-                                    case 'bug':
-                                    return <img src={bug} alt={type.type.name}/>
-                                    break;
-                                    case 'normal':
-                                    return <img src={normal} alt={type.type.name}/>   
-                                    break;
-                                    case 'dark':
-                                    return <img src={dark} alt={type.type.name}/>   
-                                    break;
-                                    case 'dragon':
-                                    return <img src={dragon} alt={type.type.name}/>   
-                                    break;
-                                    case 'eletric':
-                                    return <img src={eletric} alt={type.type.name}/>  
-                                    break; 
-                                    case 'fairy':
-                                    return <img src={fairy} alt={type.type.name}/>  
-                                    break;
-                                    case 'fighting':
-                                    return <img src={fighting} alt={type.type.name}/>   
-                                    break;
-                                    case 'ghost':
-                                    return <img src={ghost} alt={type.type.name}/>   
-                                    break;
-                                    case 'ground':
-                                    return <img src={ground} alt={type.type.name}/>   
-                                    break;            
-                                    case 'ice':
-                                    return <img src={ice} alt={type.type.name}/>   
-                                    break;
-                                    case 'psychic':
-                                    return <img src={psychic} alt={type.type.name}/>   
-                                    break;
-                                    case 'rock':
-                                    return <img src={rock} alt={type.type.name}/>   
-                                    break;
-                                    case 'steel':
-                                    return <img src={steel} alt={type.type.name}/>   
-                                    break;                        
-                                    default:
-                                    return <img src={""} alt={type.type.name}/>
-                                        break;
-                            }
-                         
-                         }
-                         )}</CardType>
-                         </span>
-                        {/* <span>{props.pokemon.types.map((type)=> {return <img src={type.type.name} alt={type.type.name}/> })}</span> */}
-                        {/* <span>{props.pokemon.types.map((type)=> {return <span>{type.type.name}</span> })}</span> */}
-                    </div>
-                    <div>
-                        <SpriteOficialPokemon src={props.pokemon.sprites?.other['official-artwork'].front_default} alt="pokemon"/>
-                    </div>
-                </CardTop>
-                <CardBottom>
-                    <span><a onClick={()=>goToDetails(navigate, props.pokemon.name)}>Detalhes</a></span>
-                    {location.pathname === "/" ?
-                    <button onClick={()=>context.addPokemonPokedex(props.pokemon)}>Capturar!</button>
-                    :
-                    <button onClick={()=>context.removePokemonPokedex(props.pokemon)}>Remover Pokemon!</button> }
-                </CardBottom>  
-            </MainCard>
+      {context.isLoading ? 'Carregando...':
+                      <MainCard key={props.pokemon.id}
+                      colorCard={colorCard}>
+      
+                      <CardTop>
+                          <div>
+                              <p>#{props.pokemon.id}</p>
+                              <h2>{props.pokemon.name}</h2>
+                              <span>
+                              <CardType>{props.pokemon.types.map((type)=> {
+                                  switch (type.type.name) {
+                                      case 'grass':
+                                          return <img src={grass} alt={type.type.name}/>
+                                          break;
+                                          case 'fire': 
+                                          return <img src={fire} alt={type.type.name}/>
+                                          break;
+                                          case 'water':
+                                          return <img src={water} alt={type.type.name}/>
+                                          break;
+                                          case 'poison':
+                                          return <img src={poison} alt={type.type.name}/>  
+                                          break; 
+                                          case 'flying':
+                                          return <img src={flying} alt={type.type.name}/>  
+                                          break;
+                                          case 'bug':
+                                          return <img src={bug} alt={type.type.name}/>
+                                          break;
+                                          case 'normal':
+                                          return <img src={normal} alt={type.type.name}/>   
+                                          break;
+                                          case 'dark':
+                                          return <img src={dark} alt={type.type.name}/>   
+                                          break;
+                                          case 'dragon':
+                                          return <img src={dragon} alt={type.type.name}/>   
+                                          break;
+                                          case 'eletric':
+                                          return <img src={eletric} alt={type.type.name}/>  
+                                          break; 
+                                          case 'fairy':
+                                          return <img src={fairy} alt={type.type.name}/>  
+                                          break;
+                                          case 'fighting':
+                                          return <img src={fighting} alt={type.type.name}/>   
+                                          break;
+                                          case 'ghost':
+                                          return <img src={ghost} alt={type.type.name}/>   
+                                          break;
+                                          case 'ground':
+                                          return <img src={ground} alt={type.type.name}/>   
+                                          break;            
+                                          case 'ice':
+                                          return <img src={ice} alt={type.type.name}/>   
+                                          break;
+                                          case 'psychic':
+                                          return <img src={psychic} alt={type.type.name}/>   
+                                          break;
+                                          case 'rock':
+                                          return <img src={rock} alt={type.type.name}/>   
+                                          break;
+                                          case 'steel':
+                                          return <img src={steel} alt={type.type.name}/>   
+                                          break;                        
+                                          default:
+                                          return <img src={""} alt={type.type.name}/>
+                                              break;
+                                  }
+                               
+                               }
+                               )}</CardType>
+                               </span>
+                              {/* <span>{props.pokemon.types.map((type)=> {return <img src={type.type.name} alt={type.type.name}/> })}</span> */}
+                              {/* <span>{props.pokemon.types.map((type)=> {return <span>{type.type.name}</span> })}</span> */}
+                          </div>
+                          <div>
+                              <SpriteOficialPokemon src={props.pokemon.sprites?.other['official-artwork'].front_default} alt="pokemon"/>
+                          </div>
+                      </CardTop>
+                      <CardBottom>
+                          <span><a onClick={()=>goToDetails(navigate, props.pokemon.name)}>Detalhes</a></span>
+                          {location.pathname === "/" ?
+                          <AddPokemon onClick={()=>context.addPokemonPokedex(props.pokemon)}>Capturar!</AddPokemon>
+                          :
+                          <ButtonDeletePokemon onClick={()=>context.removePokemonPokedex(props.pokemon)}>Excluir!</ButtonDeletePokemon> }
+                      </CardBottom>  
+                  </MainCard> }
+    
+                
             
       </>
     );

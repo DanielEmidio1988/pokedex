@@ -32,13 +32,13 @@ function CardDetails(props) {
         switch (props.pokemon.types[0].type.name) {
             case 'grass':
             return '#729F92' //ok  
-            break;
+            
             case 'fire': 
             return '#EAAB7D' //ok
-            break;
+            
             case 'water':
             return '#71C3FF' //ok  
-            break;
+            
             case 'poison':
             return '#AD61AE'   
             break; 
@@ -106,17 +106,18 @@ function CardDetails(props) {
     
     return (
       <>
-
-      <MainCardDetails
+    {context.isLoading ? 'Carregando...'
+    :
+    <MainCardDetails
       colorCard={colorCard}>
 
         {/* SEÇÃO SPRITES POKEMON */}
         <DisplayPokemon>
             <div>
-                <img src={props.pokemon.sprites?.front_default} alt={props.pokemon.name}/>
+                <img src={props.pokemon.sprites?.front_default} alt={props.pokemon?.name}/>
             </div>
             <div>
-                <img src={props.pokemon.sprites?.back_default} alt={props.pokemon.name}/>
+                <img src={props.pokemon.sprites?.back_default} alt={props.pokemon?.name}/>
             </div>
 
         </DisplayPokemon>
@@ -125,21 +126,28 @@ function CardDetails(props) {
         <DisplayBaseStats>
             <div>
             <h2>Base stats</h2>
-            {/* <p><span>HP</span><span>{props.pokemon.stats[0].base_stat}</span><span>Barra</span></p> */}
 
-            {/* Daniel: Barra de progresso Base Stats, ajustar percentual */}
-            {props.pokemon.stats?.map((status)=>(
-                <p><span>{status.stat.name.replace("hp","HP").replace("special-attack","Sp.Atk").replace("special-defense","Sp.Def ")}</span><span>{status.base_stat}</span><BarStats><div></div></BarStats></p>
+            {/* Daniel: Barra de progresso Base Stats */}
+            {props.pokemon?.stats?.map((status)=>(
+                <p><span>{status.stat.name.replace("hp","HP").replace("special-attack","Sp.Atk").replace("special-defense","Sp.Def ")}</span><span>{status.base_stat}</span><BarStats stats={status.base_stat}><div></div></BarStats></p>
             ))}
+            </div>
+            <div>
+                <p><span>Total:</span>
+                <span>
+                    {props.pokemon?.stats?.reduce((acc,cur)=> acc + cur.base_stat,0)}
+                </span>
+                <span></span>
+                </p>
             </div>
         </DisplayBaseStats>
 
-        {/* SEÇÃO NOME/TIPO E MOVES POKEMON */}
+        {/* Daniel: SEÇÃO NOME/TIPO E MOVES POKEMON */}
         <DisplayNameMove>
             <div>
                 <h3>#{props.pokemon?.id}</h3>
                 <h1>{props.pokemon?.name}</h1>
-                <p>{props.pokemon.types?.map((type)=> {
+                <p>{props.pokemon?.types?.map((type)=> {
                             switch (type.type.name) {
                                 case 'grass':
                                     return <img src={grass} alt={type.type.name}/>
@@ -206,16 +214,18 @@ function CardDetails(props) {
             </div>
             <div>
                     <h2>Moves:</h2>
-                    {props.pokemon.moves && props.pokemon.moves.filter((move,i) => i < 4).map((move)=> { return (<DisplayMoves>{move.move.name}</DisplayMoves>)})}
+                    {props.pokemon?.moves && props.pokemon?.moves.filter((move,i) => i < 4).map((move)=> { return (<DisplayMoves>{move.move.name}</DisplayMoves>)})}
             </div>
         </DisplayNameMove>
 
         {/* SEÇÃO ARTE OFICIAL POKEMON */}
         <DisplaySpritePokemon>
-            <img src={props.pokemon.sprites?.other['official-artwork'].front_default} alt="pokemon"/>
+            <img src={props.pokemon?.sprites?.other['official-artwork'].front_default} alt="pokemon"/>
         </DisplaySpritePokemon>
 
       </MainCardDetails>
+      }
+      
             
       </>
     );

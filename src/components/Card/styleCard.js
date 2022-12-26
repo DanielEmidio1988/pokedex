@@ -29,7 +29,6 @@ export const MainCard = styled.div`
         height: 38px;
         border-radius: 8px;
         border: none;
-        background: white;
         font-family: "Poppins"
         font-size: 16px;
     }
@@ -78,3 +77,11 @@ export const MainCard = styled.div`
             margin-left: 40px;
             margin-top: -50px;       
     `
+
+    export const ButtonDeletePokemon = styled.button`
+        background-color: #FF6262;
+        color: white;`
+
+    export const AddPokemon = styled.button`
+        background-color: white;
+        `

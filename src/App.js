@@ -20,6 +20,10 @@ function App() {
   //Daniel: variavel para armazenar os detalhes do pokemon
   const [detailPokemon, setDetailPokemon] = useState([])
 
+  const [showModal, setShowModal] = useState(false)
+
+  const [action, setAction] = useState("")
+
   useEffect(()=>{
     browserPokemon()
   },[])
@@ -37,10 +41,7 @@ function App() {
   }else{
   
   while (i <= 20){
-    try{
-        
-        //Daniel: basicamente, de todos formulários, encontrarei o que preciso no endpoint pokemon/id do pokemon
-        
+    try{        
         //Dentro da pasta de sprites, terá o sprite dos games, que também vou utilizar em detalhes.
         const response = await axios.get(`${BASE_URL}/${i}`)
         auxPokemon.push(response.data)
@@ -59,6 +60,8 @@ function App() {
 
   //Daniel: função para acrescentar pokemon na Pokelist.
   function addPokemonPokedex (pokemonAdd){
+    setShowModal(true)
+    setAction("add")
     const pokemonOnList = pokemons.filter(
       (pokemon) => pokemon.id !== pokemonAdd.id)
 
@@ -67,11 +70,13 @@ function App() {
       setPokemons(pokemonOnList)
     console.log("Adicionar Pokemon", pokemonOnList)
     console.log("Pokedex", pokedex)
+
   }
 
   //Daniel: remover pokemon da Pokedex
   function removePokemonPokedex (pokemonAdd){
-    
+    setShowModal(true)
+    setAction("remove")
     const pokemonOnPokedex = pokedex.filter(
       (pokemon) => pokemon.id !== pokemonAdd.id)
     
@@ -93,6 +98,10 @@ function App() {
     setIsLoading,
     addPokemonPokedex,
     removePokemonPokedex,
+    showModal,
+    setShowModal,
+    action,
+    setAction,
   }
 
   return (
