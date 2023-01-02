@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Pokedex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📖 Introdução
 
-## Available Scripts
+Este projeto foi desenvolvido com o propósito de construir uma Pokedex, consumindo as informações da PokeAPI, trazendo os primeiros 20 pokemons a tela principal.
 
-In the project directory, you can run:
 
-### `npm start`
+## 📄 Descrição
+. Ao abrir o projeto, você receberá o card dos primeiros 20 Pokemons da Pokedex, onde você poderá adiciona-los a sua Pokedex ou acessar a página de detalhes do pokemon. A cor do card é baseada no tipo do pokemon (agua, fogo, planta, entre outros), respeitando o primeiro tipo do pokemon (quando há mais de 1). No cabeçalho (header) da HomePage, você terá o botão de acesso a Pokedex;
+. Ao entrar na página da Pokedex, você receberá a informação de todos os pokemons que você capturou na tela principal e poderá removê-los, caso desejar. Desta forma, eles retornarão a página principal (home). Dentro da Pokedex, você também terá acesso a página de detalhes do Pokemon. No cabeçalho da Pokedex você terá acesso ao botão de retornar a página principal.
+. Na página de detalhes, você terá acesso a todas as informações do pokemon como Tipo, Status, Ataques, entre outros. O card também muda de cor conforme o tipo do pokemon. O cabeçalho da página de Detalhes do Pokemon possui o botão de retornar a página principal no lado esquerdo, enquanto no lado direito será renderizado o botão de Capturar ou Remover Pokemon da Pokedex, dependendo se você já havia capturado anteriormente o pokemon.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💻 Tecnologias 
 
-### `npm test`
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚒️ Livrarias Utilizadas
 
-### `npm run build`
+### Todo Sistema
+- npm install: Para instalação;
+- npm start: Para execução, na pasta back e front separadamentes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Front-End
+- npm install styled-components
+- npm install axios
+- npm install react-router-react
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📫 Contato
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+E-mail: emidio.daniel@hotmail.com
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/danielemidio1988/)
+[![Codewars](https://img.shields.io/badge/Codewars-B1361E?style=for-the-badge&logo=Codewars&logoColor=white)](https://www.codewars.com/users/DanielEmidio1988)

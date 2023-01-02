@@ -4,6 +4,7 @@ import Router from "./routes/Router"
 import { BASE_URL } from "./constants/BASE_URL";
 import { GlobalStyled } from './GlobalStyle';
 import { GlobalContext } from './context/GlobalContext';
+import Modal from './components/Modal/Modal'
 
 function App() {
 
@@ -20,8 +21,10 @@ function App() {
   //Daniel: variavel para armazenar os detalhes do pokemon
   const [detailPokemon, setDetailPokemon] = useState([])
 
+  //Daniel: variável para verificar se o Modal será exibido (true) ou não (false)
   const [showModal, setShowModal] = useState(false)
 
+  //Daniel: variável para verificar a ação que foi executada sobre o Pokemon para exibir o Modal
   const [action, setAction] = useState("")
 
   useEffect(()=>{
@@ -109,6 +112,7 @@ function App() {
     <GlobalStyled/>
     <GlobalContext.Provider value={context}>
       <Router/>
+      {showModal ? <Modal action={action}/>:''}
     </GlobalContext.Provider>
     </>
   );

@@ -145,7 +145,7 @@ function CardDetails(props) {
         {/* Daniel: SEÇÃO NOME/TIPO E MOVES POKEMON */}
         <DisplayNameMove>
             <div>
-                <h3>#{props.pokemon?.id}</h3>
+                <h3>#{props.pokemon?.id < 10 ? '0' + String(props.pokemon?.id) : props.pokemon?.id}</h3>
                 <h1>{props.pokemon?.name}</h1>
                 <p>{props.pokemon?.types?.map((type)=> {
                             switch (type.type.name) {

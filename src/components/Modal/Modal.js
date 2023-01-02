@@ -1,40 +1,39 @@
 import { GlobalContext } from "../../context/GlobalContext";
 import { useContext } from "react";
-import "./styleModal"
+import {MainModal} from "./styleModal"
 
-function Modal(){
+function Modal(props){
 
     const context = useContext(GlobalContext)
 
     const renderModal = ()=>{
-        switch (context.action) {
+        console.log(props)
+        switch (props.action) {
             case 'add':
-                <>
+                return <>
                 <h2>Gotcha!</h2>
                 <p>Pokemon adicionado a sua Pokédex</p>
                 </>
-            break;
+            
             case 'remove':
-                <>
+                return <>
                 <h2>Oh, no!</h2>
                 <p>O Pokemon foi removido da sua Pokédex</p>
-                </>
-            break;        
+                </>       
             default:
-                <>
+                return <>
                 <h2>Ops!</h2>
                 <p>Algo deu errado! Verifique.</p>
                 </>                
-                break;
         }
     }
     return(
         <>
-        <MainModal>
-        <div onClick={()=>{context.setShowModal(false)}}></div>
-        <div>
-            {context.setShowModal && renderModal()}
-        </div>
+        <MainModal onClick={()=>{context.setShowModal(false)}}>
+        {/* <div></div> */}
+        {/* <div> */}
+            {renderModal()}
+        {/* </div> */}
         </MainModal>
         </>
     )

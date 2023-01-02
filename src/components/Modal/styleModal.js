@@ -6,9 +6,16 @@ export const MainModal = styled.div`
     width: 415px;
     height: 222px;
     position: absolute;
-    top: 40%;
-    left: 50%;
+    top: 30%;
+    left: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
+    :hover{
+        cursor: pointer;
+    }
     
     h2{
         font-size: 48px;

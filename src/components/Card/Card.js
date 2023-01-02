@@ -100,7 +100,7 @@ function Card(props) {
       
                       <CardTop>
                           <div>
-                              <p>#{props.pokemon.id}</p>
+                              <p>#{props.pokemon.id < 10 ? '0' + String(props.pokemon.id):props.pokemon.id}</p>
                               <h2>{props.pokemon.name}</h2>
                               <span>
                               <CardType>{props.pokemon.types.map((type)=> {
@@ -167,8 +167,6 @@ function Card(props) {
                                }
                                )}</CardType>
                                </span>
-                              {/* <span>{props.pokemon.types.map((type)=> {return <img src={type.type.name} alt={type.type.name}/> })}</span> */}
-                              {/* <span>{props.pokemon.types.map((type)=> {return <span>{type.type.name}</span> })}</span> */}
                           </div>
                           <div>
                               <SpriteOficialPokemon src={props.pokemon.sprites?.other['official-artwork'].front_default} alt="pokemon"/>
