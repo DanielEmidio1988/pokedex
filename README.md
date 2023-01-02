@@ -1,5 +1,7 @@
 # Pokedex
 
+![Preview](./src/assets/readme-pokedex.png)
+
 ## Introdução ![PokeBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png)
 
 Este projeto foi desenvolvido com o propósito de construir uma Pokedex, consumindo as informações da PokeAPI, trazendo os primeiros 20 pokemons a tela principal.
