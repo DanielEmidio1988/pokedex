@@ -9,12 +9,10 @@ export const MainCardDetails = styled.div`
     align-items: center;
     width: 1389px;
     height: 663px;
-    margin-bottom: 60px;
     background-image: url(${fundocard});
     background-size: 65% auto;
     background-repeat: no-repeat;
-    background-position: top right;
-    
+    background-position: top right;  
 `
 
 export const DisplayPokemon = styled.div`
@@ -72,7 +70,6 @@ export const DisplayPokemon = styled.div`
   export const BarStats = styled.span`
     border-radius: 8px;
     height: 10px;
-    // border: 1px solid black;
     
     div{
         border: 1px solid ${props => props.stats < 50 ? 'red' :props.stats < 99? 'orange':'#73AC31'};

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { useNavigate, useLocation } from "react-router-dom";
 import {MainCardDetails, DisplayPokemon, DisplayBaseStats, DisplayNameMove, DisplaySpritePokemon, DisplayMoves, BarStats} from "./styleCardDetails"
 import fire from "../../assets/typepokemon/fire.svg"
 import grass from "../../assets/typepokemon/grass.svg"
@@ -20,93 +19,58 @@ import psychic from "../../assets/typepokemon/psychic.svg"
 import rock from "../../assets/typepokemon/steel.svg"
 import steel from "../../assets/typepokemon/steel.svg"
 import water from "../../assets/typepokemon/water.svg"
-import axios from "axios";
+import pokeball from "../../assets/pokeball.gif"
 
 function CardDetails(props) {
 
     const context = useContext(GlobalContext)
-    const location = useLocation()
-    const navigate = useNavigate()
 
     const colorCard = ()=>{
         switch (props.pokemon.types[0].type.name) {
             case 'grass':
-            return '#729F92' //ok  
-            
+            return '#729F92' //ok             
             case 'fire': 
-            return '#EAAB7D' //ok
-            
+            return '#EAAB7D' //ok           
             case 'water':
-            return '#71C3FF' //ok  
-            
+            return '#71C3FF' //ok              
             case 'poison':
-            return '#AD61AE'   
-            break; 
+            return '#AD61AE'    
             case 'flying':
             return '#6892B0'   
-            break;
             case 'bug':
             return '#76A866' //ok  
-            break;
             case 'normal':
             return '#BF9762'   
-            break;
             case 'dark':
             return '#5C5365'   
-            break;
             case 'dragon':
             return '#0A6CBF'   
-            break;
+            case 'eletric':
+            return '#F4D23B'    
             case 'eletric':
             return '#F4D23B'   
-            break; 
             case 'eletric':
             return '#F4D23B'   
-            break;
             case 'eletric':
             return '#F4D23B'   
-            break;
+            case 'eletric':
+            return '#F4D23B'              
             case 'eletric':
             return '#F4D23B'   
-            break;
             case 'eletric':
             return '#F4D23B'   
-            break;            
             case 'eletric':
             return '#F4D23B'   
-            break;
             case 'eletric':
-            return '#F4D23B'   
-            break;
-            case 'eletric':
-            return '#F4D23B'   
-            break;
-            case 'eletric':
-            return '#F4D23B'   
-            break;                        
+            return '#F4D23B'                         
             default:
             return '#729F92'
-                break;
         }
     }
-
-    //Daniel: Em teste, função para mudar a barra de progresso
-    // const progressBar = ()=>{
-    //     const powerBar = props.pokemon.stats?.map((status)=> status.base_stat)
-
-    //     switch (powerBar) {
-    //         case value:
-                
-    //             break;
-        
-    //         default:
-    //             break;
-    //     }
-    // }
     
     return (
       <>
-    {context.isLoading ? 'Carregando...'
+    {context.isLoading ? <img src={pokeball} alt="Loading"/>
     :
     <MainCardDetails
       colorCard={colorCard}>
@@ -151,61 +115,42 @@ function CardDetails(props) {
                             switch (type.type.name) {
                                 case 'grass':
                                     return <img src={grass} alt={type.type.name}/>
-                                    break;
                                     case 'fire': 
                                     return <img src={fire} alt={type.type.name}/>
-                                    break;
                                     case 'water':
                                     return <img src={water} alt={type.type.name}/>
-                                    break;
                                     case 'poison':
                                     return <img src={poison} alt={type.type.name}/>  
-                                    break; 
                                     case 'flying':
                                     return <img src={flying} alt={type.type.name}/>  
-                                    break;
                                     case 'bug':
                                     return <img src={bug} alt={type.type.name}/>
-                                    break;
                                     case 'normal':
                                     return <img src={normal} alt={type.type.name}/>   
-                                    break;
                                     case 'dark':
                                     return <img src={dark} alt={type.type.name}/>   
-                                    break;
                                     case 'dragon':
                                     return <img src={dragon} alt={type.type.name}/>   
-                                    break;
                                     case 'eletric':
                                     return <img src={eletric} alt={type.type.name}/>  
-                                    break; 
                                     case 'fairy':
                                     return <img src={fairy} alt={type.type.name}/>  
-                                    break;
                                     case 'fighting':
                                     return <img src={fighting} alt={type.type.name}/>   
-                                    break;
                                     case 'ghost':
                                     return <img src={ghost} alt={type.type.name}/>   
-                                    break;
                                     case 'ground':
-                                    return <img src={ground} alt={type.type.name}/>   
-                                    break;            
+                                    return <img src={ground} alt={type.type.name}/>              
                                     case 'ice':
                                     return <img src={ice} alt={type.type.name}/>   
-                                    break;
                                     case 'psychic':
                                     return <img src={psychic} alt={type.type.name}/>   
-                                    break;
                                     case 'rock':
                                     return <img src={rock} alt={type.type.name}/>   
-                                    break;
                                     case 'steel':
-                                    return <img src={steel} alt={type.type.name}/>   
-                                    break;                        
+                                    return <img src={steel} alt={type.type.name}/>                           
                                     default:
                                     return <img src={""} alt={type.type.name}/>
-                                        break;
                             }
                          
                          }
@@ -225,8 +170,7 @@ function CardDetails(props) {
 
       </MainCardDetails>
       }
-      
-            
+                
       </>
     );
   }

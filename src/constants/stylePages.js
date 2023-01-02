@@ -4,7 +4,7 @@ export const MainContainer = styled.div`
     background-color: #5E5E5E;
     padding-top: 32px;
     width: 100%;
-    min-height: 100vh;
+    min-height: 128vh;
 
     h1{
         font-family: 'Poppins';
