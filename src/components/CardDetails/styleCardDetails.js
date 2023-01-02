@@ -86,9 +86,6 @@ export const DisplayPokemon = styled.div`
   export const DisplayNameMove = styled.div`
     margin-left: 30px;
     font-family: 'Poppins';
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
 
     img{
         width: 99px;
@@ -101,6 +98,10 @@ export const DisplayPokemon = styled.div`
         color: white;
         font-size: 16px;
         font-weight: bold;  
+    }
+
+    h1{
+        text-transform: capitalize;
     }
 
     div:last-child{

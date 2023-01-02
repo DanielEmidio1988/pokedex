@@ -1,6 +1,6 @@
 import logo from "../../assets/logo-pokedex.svg"
 import { useContext, useEffect } from "react";
-import {MainHeader, ButtonPokedex} from "./styleHeader"
+import {MainHeader, ButtonPokedex, ButtonDeletePokemon, AddPokemon} from "./styleHeader"
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { goToPokedex, goToHome } from "../../routes/coordinator";
 import { GlobalContext } from "../../context/GlobalContext";
@@ -14,10 +14,8 @@ function Header() {
   const params = useParams()
   const pokeName = params.PokemonName
 
-  // const searchPokedex = context.pokedex?.filter((pokemon)=>{
-  //   console.log('Pokemon na Pokedex', pokemon.name)
-  //   return pokemon.name === pokeName
-  // })
+  const thisPokemon = context.detailPokemon.find(pokemon => pokemon.name === pokeName)
+  const isInPokedex = context.pokedex.find(pokemon => pokemon.name === pokeName)
 
 
   const searchPokedex = ()=>{
@@ -27,10 +25,10 @@ function Header() {
       case `/${pokeName}`:
         return(
           <>
-        {context.pokedex?.includes(pokeName)?
-        <button>Remover da Pokedex</button>
-      :
-      <button>Capturar</button>} 
+        {isInPokedex?
+        <ButtonDeletePokemon onClick={()=>{context.removePokemonPokedex(thisPokemon)}}>Remover da Pokedex</ButtonDeletePokemon>
+          :
+        <AddPokemon onClick={()=>{context.addPokemonPokedex(thisPokemon)}}>Capturar</AddPokemon>}
         </>
       )  
       default:
@@ -38,8 +36,6 @@ function Header() {
     }
   }
 
-  // console.log('Search', context.pokedex.filter((pokemon)=>{return pokemon.name === pokeName}))
-  // console.log('searchPokedex',searchPokedex.name)
     return (
       <>
         <MainHeader>
@@ -53,9 +49,6 @@ function Header() {
           {location.pathname === `/${pokeName}` ?
           <div>
             {searchPokedex()}
-            {/* {searchPokedex ? <button>Remover Pokemon</button> : <button>Adicionar Pokemon</button>} */}
-            {/* {context.pokedex?.includes(pokeName) ? <button>Remover Pokemon</button> : <button>Adicionar Pokemon</button>} */}
-            {/* {context.pokedex && context.pokedex.filter((pokemon)=> {return pokemon.name === pokeName}) ? <button>Remover Pokemon</button> : <button>Adicionar Pokemon</button>} */}
           </div>
           :
           <div>

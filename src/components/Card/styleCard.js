@@ -45,13 +45,14 @@ export const MainCard = styled.div`
             padding-left: 20px;
             padding-top: 20px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: bold;            
         }
 
         h2{
             padding-left: 20px;
             font-size: 28px;
             font-weight: bold;
+            text-transform: capitalize;
         }
 
         `

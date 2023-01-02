@@ -15,11 +15,25 @@ function Home() {
           <MainContainer>
           <div><h1>Todos Pokemons</h1></div>
           <DisplayCards>
-            {pokemons && pokemons.map((pokemon)=>( 
+            {pokemons && pokemons
+            .sort((a,b)=>{
+              if(a?.id > b?.id){
+                return 1
+              }else{
+                return-1
+              }
+            })
+            .map((pokemon)=>( 
             <Card
             key={pokemon.id}
             pokemon={pokemon}/>
             ))}
+
+          {/* {pokemons && pokemons.map((pokemon)=>( 
+            <Card
+            key={pokemon.id}
+            pokemon={pokemon}/>
+            ))} */}
           </DisplayCards>  
         </MainContainer>
       </>

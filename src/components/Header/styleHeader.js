@@ -44,3 +44,39 @@ export const ButtonPokedex = styled.button`
         cursor: pointer;
     }
 `
+
+export const ButtonDeletePokemon = styled.button`
+    width: 226px;
+    height: 57px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'Poppins';
+    background-color: #FF6262;
+    color: white;
+    border: none;
+
+    :hover{
+        cursor: pointer;
+    }
+`
+
+export const AddPokemon = styled.button`
+    width: 226px;
+    height: 57px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'Poppins';
+    background-color: #33A4F5;
+    color: white;
+    border: none;
+    
+    :hover{
+        cursor: pointer;
+    }
+`
