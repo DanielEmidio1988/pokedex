@@ -28,12 +28,6 @@ function Home() {
             key={pokemon.id}
             pokemon={pokemon}/>
             ))}
-
-          {/* {pokemons && pokemons.map((pokemon)=>( 
-            <Card
-            key={pokemon.id}
-            pokemon={pokemon}/>
-            ))} */}
           </DisplayCards>  
         </MainContainer>
       </>

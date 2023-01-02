@@ -54,7 +54,6 @@ export const MainCard = styled.div`
             font-weight: bold;
             text-transform: capitalize;
         }
-
         `
 
     export const CardBottom = styled.div`
@@ -63,6 +62,7 @@ export const MainCard = styled.div`
         padding-left: 20px;
         padding-right: 20px;
         `
+
     export const CardType = styled.span`
         display: flex;
         margin-top: 8px;
@@ -73,6 +73,7 @@ export const MainCard = styled.div`
             height: 31px;
         }
         `
+    
     export const SpriteOficialPokemon = styled.img`  
             width: 193px;
             margin-left: 40px;
@@ -86,3 +87,7 @@ export const MainCard = styled.div`
     export const AddPokemon = styled.button`
         background-color: white;
         `
+
+    export const Loading = styled.img`
+        width: 52px;    
+    `

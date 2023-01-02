@@ -85,8 +85,7 @@ function App() {
     
     const newBrowserPokelist = [...pokemons, pokemonAdd]
     console.log("newBrowser",newBrowserPokelist)
-    setPokedex(pokemonOnPokedex)
-  
+    setPokedex(pokemonOnPokedex) 
     setPokemons(newBrowserPokelist) 
   }
 
