@@ -6,6 +6,8 @@
 
 Este projeto foi desenvolvido com o propósito de construir uma Pokedex, consumindo as informações da PokeAPI, trazendo os primeiros 20 pokemons a tela principal.
 
+Para acessar o projeto, [clique aqui!](https://pokedex-ruddy-tau-65.vercel.app/).
+
 
 ## Descrição ![MasterBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png)
 . Ao abrir o projeto, você receberá o card dos primeiros 20 Pokemons da Pokedex, onde você poderá adiciona-los a sua Pokedex ou acessar a página de detalhes do pokemon. A cor do card é baseada no tipo do pokemon (agua, fogo, planta, entre outros), respeitando o primeiro tipo do pokemon (quando há mais de 1). No cabeçalho (header) da HomePage, você terá o botão de acesso a Pokedex;
