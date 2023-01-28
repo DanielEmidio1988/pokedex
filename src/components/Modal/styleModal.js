@@ -26,3 +26,33 @@ export const MainModal = styled.div`
         font-size: 16px;
         font-family: 'Poppins';
     }`
+
+    export const LoadingBar = styled.div`
+        width: 300px;
+        height: 20px;
+        border: 2px solid #904F16;
+        background-color: #FD6049;
+
+        div{
+            width: ${props=> props.progress}%;
+            height: 100%;
+            background-color: #92D050;
+            border: 1px solid #904F16;
+        }
+    `
+
+    export const ModalAlert = styled.div`
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        img{
+            width: 100px;
+        }
+
+        p{
+            font-size: 12px;
+        }
+    `
