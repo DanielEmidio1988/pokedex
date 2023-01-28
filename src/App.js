@@ -22,10 +22,10 @@ function App() {
   const [detailPokemon, setDetailPokemon] = useState([])
 
   //Daniel: variável para verificar se o Modal será exibido (true) ou não (false)
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(true)
 
   //Daniel: variável para verificar a ação que foi executada sobre o Pokemon para exibir o Modal
-  const [action, setAction] = useState("")
+  const [action, setAction] = useState("alert")
 
   useEffect(()=>{
     browserPokemon()
