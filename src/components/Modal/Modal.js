@@ -8,7 +8,7 @@ import pikachu from "../../assets/Pikachu.gif"
 function Modal(props) {
 
     const context = useContext(GlobalContext)
-    const progress = Number(10)
+    const progress = Number(20)
 
     const renderModal = () => {
         console.log(props)
