@@ -5,6 +5,7 @@ import { MainModal } from "./styleModal"
 function Modal(props) {
 
     const context = useContext(GlobalContext)
+    const progress = Number(40)
 
     const renderModal = () => {
         console.log(props)
