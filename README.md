@@ -1,7 +1,5 @@
 # Pokedex
 
-![Preview](./src/assets/readme-pokedex.png)
-
 ## Introdução ![PokeBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png)
 
 A Pokedex é uma aplicação web que contém as principais informações dos 1008 pokemons existentes, consumindo a API [PokeApi](https://pokeapi.co/).
@@ -16,6 +14,7 @@ Para acessar o projeto, [clique aqui!](https://pokedex-ruddy-tau-65.vercel.app/)
 
 ## Status do Projeto ![UltraBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ultra-ball.png)
 ⌛ Em Andamento: Linha Evolutiva(Página de Detalhes), Filtros (Página Principal), Comparação Entre Pokemons (Página de Detalhes)
+
 🔚 Concluído: Listagem 1008 pokemons, Responsividade, Atualização Estilização
 
 ## Tecnologias ![RareCandy](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rare-candy.png)
