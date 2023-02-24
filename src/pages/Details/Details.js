@@ -5,6 +5,7 @@ import CardDetails from "../../components/CardDetails/CardDetails"
 import Header from "../../components/Header/Header";
 import pokeball from "../../assets/pokeball.gif"
 import { MainContainer, DisplayCards } from "../../constants/stylePages";
+import Footer from "../../components/Footer/Footer";
 
 function Details() {
 
@@ -25,12 +26,14 @@ function Details() {
           context.detailPokemon.filter((pokemon)=> pokemon.name === pokeName).map((pokemon)=>(
                 <CardDetails
                   key={pokemon.id}
-                  pokemon={pokemon}/>
+                  pokemonUrl={pokemon.url}
+                  pokemonName={pokemon.name}/>
            )
            )} 
 
           </DisplayCards>  
         </MainContainer>
+        <Footer/>
       </>
     );
   }

@@ -4,16 +4,19 @@
 
 ## Introdução ![PokeBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png)
 
-Este projeto foi desenvolvido com o propósito de construir uma Pokedex, consumindo as informações da PokeAPI, trazendo os primeiros 20 pokemons a tela principal.
+A Pokedex é uma aplicação web que contém as principais informações dos 1008 pokemons existentes, consumindo a API [PokeApi](https://pokeapi.co/).
 
 Para acessar o projeto, [clique aqui!](https://pokedex-ruddy-tau-65.vercel.app/).
 
 
 ## Descrição ![MasterBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png)
-. Ao abrir o projeto, você receberá o card dos primeiros 20 Pokemons da Pokedex, onde você poderá adiciona-los a sua Pokedex ou acessar a página de detalhes do pokemon. A cor do card é baseada no tipo do pokemon (agua, fogo, planta, entre outros), respeitando o primeiro tipo do pokemon (quando há mais de 1). No cabeçalho (header) da HomePage, você terá o botão de acesso a Pokedex;
-. Ao entrar na página da Pokedex, você receberá a informação de todos os pokemons que você capturou na tela principal e poderá removê-los, caso desejar. Desta forma, eles retornarão a página principal (home). Dentro da Pokedex, você também terá acesso a página de detalhes do Pokemon. No cabeçalho da Pokedex você terá acesso ao botão de retornar a página principal.
-. Na página de detalhes, você terá acesso a todas as informações do pokemon como Tipo, Status, Ataques, entre outros. O card também muda de cor conforme o tipo do pokemon. O cabeçalho da página de Detalhes do Pokemon possui o botão de retornar a página principal no lado esquerdo, enquanto no lado direito será renderizado o botão de Capturar ou Remover Pokemon da Pokedex, dependendo se você já havia capturado anteriormente o pokemon.
+. Ao abrir a aplicação, você receberá o card de todos os 1008 pokemons, sendo 20 pokemons por página.
+. Cada card contém a função de Detalhes que exibirá informações detalhadas do Pokemon como Base Stats e Movimentos. Além disso, há a função de captura que permite Capturar os Pokemons que desejar e adicionar a sua Pokedex pessoal.
+. Aplicação totalmente responsiva em Desktop, Tablet e Celulares.
 
+## Status do Projeto ![UltraBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ultra-ball.png)
+⌛ Em Andamento: Linha Evolutiva(Página de Detalhes), Filtros (Página Principal), Comparação Entre Pokemons (Página de Detalhes)
+🔚 Concluído: Listagem 1008 pokemons, Responsividade, Atualização Estilização
 
 ## Tecnologias ![RareCandy](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rare-candy.png)
 
@@ -27,12 +30,12 @@ Para acessar o projeto, [clique aqui!](https://pokedex-ruddy-tau-65.vercel.app/)
 
 ### Todo Sistema
 - npm install: Para instalação;
-- npm start: Para execução, na pasta back e front separadamentes.
+- npm start: Para execução;
 
 ### Front-End
 - npm install styled-components
 - npm install axios
-- npm install react-router-react
+- npm install react-router-dom
 
 ## Contato ![AirMail](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/air-mail.png)
 

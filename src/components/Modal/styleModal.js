@@ -55,4 +55,6 @@ export const MainModal = styled.div`
         p{
             font-size: 12px;
         }
+
     `
+
