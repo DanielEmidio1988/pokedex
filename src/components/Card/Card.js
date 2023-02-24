@@ -1,150 +1,125 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { goToDetails } from "../../routes/coordinator";
-import { MainCard, CardTop, CardBottom, CardType, SpriteOficialPokemon, ButtonDeletePokemon, AddPokemon, Loading } from "./styleCard";
-import fire from "../../assets/typepokemon/fire.svg"
-import grass from "../../assets/typepokemon/grass.svg"
-import bug from "../../assets/typepokemon/bug.svg"
-import dragon from "../../assets/typepokemon/dragon.svg"
-import dark from "../../assets/typepokemon/dark.svg"
-import eletric from "../../assets/typepokemon/eletric.svg"
-import fairy from "../../assets/typepokemon/fairy.svg"
-import fighting from "../../assets/typepokemon/fighting.svg"
-import flying from "../../assets/typepokemon/flying.svg"
-import ghost from "../../assets/typepokemon/ghost.svg"
-import ground from "../../assets/typepokemon/ground.svg"
-import ice from "../../assets/typepokemon/ice.svg"
-import normal from "../../assets/typepokemon/normal.svg"
-import poison from "../../assets/typepokemon/poison.svg"
-import psychic from "../../assets/typepokemon/psychic.svg"
-import rock from "../../assets/typepokemon/steel.svg"
-import steel from "../../assets/typepokemon/steel.svg"
-import water from "../../assets/typepokemon/water.svg"
+import axios from "axios";
+import { CardContainer, CardHeader, CardFooter, CardMain, CardType, SpriteOficialPokemon, ButtonDeletePokemon, AddPokemon, ButtonDetails, Loading } from "./styleCard";
 import pokeball from "../../assets/pokeball.gif"
+import search from "../../assets/search.svg"
 
 function Card(props) {
 
     const context = useContext(GlobalContext)
+    const [pokemon, setPokemon] = useState({})
     const location = useLocation()
     const navigate = useNavigate()
 
-    const colorCard = ()=>{
-        switch (props.pokemon.types[0].type.name) {
-            case 'grass':
-            return '#729F92' //ok  
-            case 'fire': 
-            return '#EAAB7D' //ok
-            case 'water':
-            return '#71C3FF' //ok  
-            case 'poison':
-            return '#AD61AE'   
-            case 'flying':
-            return '#6892B0'   
-            case 'bug':
-            return '#76A866' //ok  
-            case 'normal':
-            return '#BF9762'   
-            case 'dark':
-            return '#5C5365'   
-            case 'dragon':
-            return '#0A6CBF'   
-            case 'eletric':
-            return '#F4D23B'   
-            case 'eletric':
-            return '#F4D23B'   
-            case 'eletric':
-            return '#F4D23B'   
-            case 'eletric':
-            return '#F4D23B'   
-            case 'eletric':
-            return '#F4D23B'             
-            case 'eletric':
-            return '#F4D23B'   
-            case 'eletric':
-            return '#F4D23B'   
-            case 'eletric':
-            return '#F4D23B'   
-            case 'eletric':
-            return '#F4D23B'                           
-            default:
-            return '#729F92'
+    useEffect(()=>{
+        browserCardPokemon()
+    },[context.pokemons])
+
+    const browserCardPokemon = async ()=>{
+        try {
+            context.setIsLoading(true)
+            const getPokemon = await axios.get(props.pokemonUrl)
+            //Usarei o console abaixo para identificar o que mais acrescentar no projeto.
+            console.log(`${getPokemon.data.name}: `, getPokemon.data)
+            setPokemon(getPokemon.data)
+            context.setIsLoading(false)
+        } catch (error) {
+            context.setIsLoading(false)
         }
     }
     
     return (
       <>
-
-      {context.isLoading ? <Loading src={pokeball} alt="Loading"/>:
-                      <MainCard key={props.pokemon.id}
-                      colorCard={colorCard}>
-      
-                      <CardTop>
-                          <div>
-                              <p>#{props.pokemon.id < 10 ? '0' + String(props.pokemon.id):props.pokemon.id}</p>
-                              <h2>{props.pokemon.name}</h2>
-                              <span>
-                              <CardType>{props.pokemon.types.map((type)=> {
-                                  switch (type.type.name) {
-                                      case 'grass':
-                                          return <img src={grass} alt={type.type.name}/>
-                                          case 'fire': 
-                                          return <img src={fire} alt={type.type.name}/>
-                                          case 'water':
-                                          return <img src={water} alt={type.type.name}/>
-                                          case 'poison':
-                                          return <img src={poison} alt={type.type.name}/>  
-                                          case 'flying':
-                                          return <img src={flying} alt={type.type.name}/>  
-                                          case 'bug':
-                                          return <img src={bug} alt={type.type.name}/>
-                                          case 'normal':
-                                          return <img src={normal} alt={type.type.name}/>   
-                                          case 'dark':
-                                          return <img src={dark} alt={type.type.name}/>   
-                                          case 'dragon':
-                                          return <img src={dragon} alt={type.type.name}/>   
-                                          case 'eletric':
-                                          return <img src={eletric} alt={type.type.name}/>   
-                                          case 'fairy':
-                                          return <img src={fairy} alt={type.type.name}/>  
-                                          case 'fighting':
-                                          return <img src={fighting} alt={type.type.name}/>   
-                                          case 'ghost':
-                                          return <img src={ghost} alt={type.type.name}/>   
-                                          case 'ground':
-                                          return <img src={ground} alt={type.type.name}/>              
-                                          case 'ice':
-                                          return <img src={ice} alt={type.type.name}/>   
-                                          case 'psychic':
-                                          return <img src={psychic} alt={type.type.name}/>   
-                                          case 'rock':
-                                          return <img src={rock} alt={type.type.name}/>   
-                                          case 'steel':
-                                          return <img src={steel} alt={type.type.name}/>                         
-                                          default:
-                                          return <img src={""} alt={type.type.name}/>
-                                  }
-                               
-                               }
-                               )}</CardType>
-                               </span>
-                          </div>
-                          <div>
-                              <SpriteOficialPokemon src={props.pokemon.sprites?.other['official-artwork'].front_default} alt="pokemon"/>
-                          </div>
-                      </CardTop>
-                      <CardBottom>
-                          <span><a onClick={()=>goToDetails(navigate, props.pokemon.name)}>Detalhes</a></span>
-                          {location.pathname === "/" ?
-                          <AddPokemon onClick={()=>context.addPokemonPokedex(props.pokemon)}>Capturar!</AddPokemon>
-                          :
-                          <ButtonDeletePokemon onClick={()=>context.removePokemonPokedex(props.pokemon)}>Excluir!</ButtonDeletePokemon> }
-                      </CardBottom>  
-                  </MainCard> }
-    
+      {context.isLoading ? 
+      <CardContainer>
+        <CardHeader>
+            <h2>Carregando...</h2>
+        </CardHeader>
+        <div className="loadingStatus">
+            <Loading src={pokeball} alt="Loading"/>
+        </div>
+      </CardContainer>
+      :
+                       
+            <CardContainer key={pokemon.id}
                 
-            
+                >
+                  
+                <CardHeader>
+                    <div className="pokemonName">
+                        <h3>{pokemon.name}</h3>
+                        <p>#{pokemon.id < 10 ? '0' + String(pokemon.id):pokemon.id}</p>
+                    </div>
+                </CardHeader>
+
+                <CardMain>
+                    <div>
+                         <SpriteOficialPokemon src={pokemon.sprites?.front_default} alt="pokemon"/>
+                    </div>
+                    <div>
+                        <span>{pokemon && pokemon.types?.map((type, i)=>{
+                            switch (type.type.name) {
+                                case 'grass':
+                                return <CardType color={'#316520'}>{type.type.name}</CardType>                               
+                                case 'fire': 
+                                return <CardType color={'#904F16'}>{type.type.name}</CardType>
+                                case 'water':
+                                return <CardType color={'#0070C0'}>{type.type.name}</CardType>   
+                                case 'poison':
+                                return <CardType color={'#A040A0'}>{type.type.name}</CardType>  
+                                case 'flying':
+                                return <CardType color={'#A890F0'}>{type.type.name}</CardType> 
+                                case 'bug':
+                                return <CardType color={'#A8B820'}>{type.type.name}</CardType> 
+                                case 'normal':
+                                return <CardType color={'#A8A878'}>{type.type.name}</CardType>   
+                                case 'dark':
+                                return <CardType color={'#130C0C'}>{type.type.name}</CardType>   
+                                case 'dragon':
+                                return <CardType color={'#004170'}>{type.type.name}</CardType>  
+                                case 'electric':
+                                return <CardType color={'#D2A257'}>{type.type.name}</CardType>   
+                                case 'ground':
+                                return <CardType color={'#BF9762'}>{type.type.name}</CardType>  
+                                case 'fairy':
+                                return <CardType color={'#F85888'}>{type.type.name}</CardType>   
+                                case 'ice':
+                                return <CardType color={'#7EB3B3'}>{type.type.name}</CardType> 
+                                case 'steel':
+                                return <CardType color={'#B8B8D0'}>{type.type.name}</CardType>              
+                                case 'fighting':
+                                return <CardType color={'#9B4840'}>{type.type.name}</CardType>   
+                                case 'psychic':
+                                return <CardType color={'#9B4840'}>{type.type.name}</CardType>  
+                                case 'rock':
+                                return <CardType color={'#B8A038'}>{type.type.name}</CardType>   
+                                case 'ghost':
+                                return <CardType color={'#58504F'}>{type.type.name}</CardType>                            
+                                default:
+                                return <CardType color={'#130C0C'}>NULL</CardType> 
+                            }
+                            }
+                            )}
+                        </span>                                               
+                    </div>
+                </CardMain>
+                
+                                  
+                <CardFooter>
+                    <section>
+                        <ButtonDetails onClick={()=>goToDetails(navigate, pokemon.name)}><img src={search} alt="botão detalhes pokemon"/></ButtonDetails>
+                        {location.pathname === "/" || location.pathname === `/${context.pageNumber}` ?
+                        <AddPokemon onClick={()=>context.addPokemonPokedex(pokemon)}>CAPTURAR</AddPokemon>
+                        :
+                        <ButtonDeletePokemon onClick={()=>context.removePokemonPokedex(pokemon)}>LIBERAR</ButtonDeletePokemon>
+                        }
+                    </section>
+                </CardFooter>  
+            </CardContainer>
+        }                         
       </>
     );
   }
