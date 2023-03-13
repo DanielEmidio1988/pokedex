@@ -5,7 +5,6 @@ import { MainModal } from "./styleModal"
 function Modal(props) {
 
     const context = useContext(GlobalContext)
-    const progress = Number(40)
 
     const renderModal = () => {
         console.log(props)
@@ -14,12 +13,14 @@ function Modal(props) {
                 return <>
                     <h2>Gotcha!</h2>
                     <p>Pokemon adicionado a sua Pokédex</p>
+                    <button>FECHAR</button>
                 </>
 
             case 'remove':
                 return <>
                     <h2>Oh, no!</h2>
                     <p>O Pokemon foi removido da sua Pokédex</p>
+                    <button>FECHAR</button>
                 </>
             default:
                 return <>

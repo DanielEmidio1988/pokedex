@@ -15,6 +15,10 @@ function Home() {
   const params = useParams()
   const {pokemons, addPokemonPokedex}=context
   const [filter, setFilter] = useState(false)
+  const [search, setSearch] = useState('')
+  const filterPokemon = pokemons && pokemons
+  .filter((pokemon)=> pokemon?.name?.includes(search.toLowerCase()))
+  .filter((pokemon, i)=> i > context.firstPkm && i < context.lastPkm)
 
   const handlePageTurn = (value)=>{
     if(value === 0){
@@ -45,7 +49,7 @@ function Home() {
           <MainContainer>
           <div className={filter || context.showModal ? 'menu-overlay-open' : 'menu-overlay-close'}></div> 
           <div className="boxFilter">
-            <input value={context.searchHome} onChange={(event)=>context.setSearchHome(event.target.value)} placeholder="Insira a id ou nome do Pokemon"/>
+            <input value={search} onChange={(event)=>setSearch(event.target.value)} placeholder="Insira a ID ou nome do Pokemon"/>
             <button onClick={()=>setFilter(true)}>Filtros</button>
             <FilterMenu filter={filter} setFilter={setFilter}/>
           </div>
@@ -53,21 +57,8 @@ function Home() {
             <h1>Todos Pokemons</h1>
           </div>
           <DisplayCards>
-            {pokemons && pokemons
-            //Condição abaixa esta trazendo algo como 1, 11, 12, 13 e 2, 20, 21, 22...
-            // .sort((a,b)=>{
-            //   if(a?.url > b?.url){
-            //     return 1
-            //   }else{
-            //     return-1
-            //   }
-            // })
-
-            // firstPkm,
-            // lastPkm,
-            .filter((pokemon)=> pokemon?.name?.includes(context.searchHome))
-            .filter((pokemon, i)=> i > context.firstPkm && i < context.lastPkm)
-            // .filter((pokemon)=> pokemon.id ) 
+            {filterPokemon
+            
             .map((pokemon)=>( 
             <Card
             addPokemonPokedex={addPokemonPokedex}

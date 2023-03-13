@@ -14,29 +14,45 @@ function Card(props) {
     const location = useLocation()
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        browserCardPokemon()
-    },[context.pokemons])
+    // console.log("props.pokemonUrl", props.pokemonUrl)
+    // useEffect(()=>{
+    //     browserCardPokemon()
+    // },[context.pokemons, props])
 
-    const browserCardPokemon = async ()=>{
-        try {
-            context.setIsLoading(true)
-            const getPokemon = await axios.get(props.pokemonUrl)
-            //Usarei o console abaixo para identificar o que mais acrescentar no projeto.
-            console.log(`${getPokemon.data.name}: `, getPokemon.data)
-            setPokemon(getPokemon.data)
-            context.setIsLoading(false)
-        } catch (error) {
-            context.setIsLoading(false)
-        }
-    }
+    useEffect(()=>{
+        ;(async () => {
+            try {
+                context.setIsLoading(true)
+                const getPokemon = await axios.get(props.pokemonUrl)
+                //Usarei o console abaixo para identificar o que mais acrescentar no projeto.
+                // console.log(`${getPokemon.data.name}: `, getPokemon.data)
+                setPokemon(getPokemon.data)
+                context.setIsLoading(false)
+            } catch (error) {
+                context.setIsLoading(false)
+            }
+        })()
+    },[context, props])
+
+    // const browserCardPokemon = async ()=>{
+    //     try {
+    //         context.setIsLoading(true)
+    //         const getPokemon = await axios.get(props.pokemonUrl)
+    //         //Usarei o console abaixo para identificar o que mais acrescentar no projeto.
+    //         console.log(`${getPokemon.data.name}: `, getPokemon.data)
+    //         setPokemon(getPokemon.data)
+    //         context.setIsLoading(false)
+    //     } catch (error) {
+    //         context.setIsLoading(false)
+    //     }
+    // }
     
     return (
       <>
       {context.isLoading ? 
       <CardContainer>
         <CardHeader>
-            <h2>Carregando...</h2>
+            <h3>Carregando...</h3>
         </CardHeader>
         <div className="loadingStatus">
             <Loading src={pokeball} alt="Loading"/>

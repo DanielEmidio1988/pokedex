@@ -26,13 +26,13 @@ export const ContainerFilter = styled.div`
         button{
             width: 100px;
             height: 20px;
-            background-color: #F2BF40;
-            border-radius: 8px;
+            background-color: #E2B868;
+            // border-radius: 8px;
             color: #904F16;
-            font-family:'Poppins';
-            font-weight: bold;
+            // font-family:'Poppins';
+            // font-weight: bold;
             font-size: 12px;
-            border: 2px solid #904F16;
+            border: 1.5px solid #EACD87;
             margin-bottom: -24px;
         
             :hover{
