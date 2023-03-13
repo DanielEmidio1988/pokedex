@@ -94,14 +94,14 @@ align-items: center;
         background-color: #483838;
         border-radius: 8px;
         color: #F8ED91;
-        font-family:'Poppins';
-        font-weight: 500;
+        // font-family:'Poppins';
+        // font-weight: 500;
         font-size: 14px;
         border: 1px solid #F8ED91;
-        box-shadow: 0px 0px 2px #904F16;     
+        // box-shadow: 0px 0px 2px #904F16;     
     
         :hover{
-            cursor: pointer;
+            // cursor: pointer;
             color: #F1EDDF;
         }
 

@@ -6,14 +6,15 @@ export const MainContainer = styled.div`
     min-height: 128vh;
     background-color: #FCFAEB;
 
-    h1{
-        cursor: default;
-        font-family: 'Poppins';
-        font-size: 48px;
-        padding-left: 40px;
-        font-weight: 500;
-        color: #904F16;
-    }
+    // h1{
+    //     cursor: default;
+    //     font-family: 'Poppins';
+    //     font-size: 48px;
+    //     padding-left: 40px;
+    //     font-weight: 500;
+    //     color: #483838;
+    //     // background-color: #7B7774;
+    // }
 
     h2{
         cursor: default;
@@ -68,11 +69,11 @@ export const MainContainer = styled.div`
             border: 1.5px solid #904F16;
             background-color: #E6E7BF;
             height: 20px;
-            box-shadow: 0px 0px 2px #904F16;
+            // box-shadow: 0px 0px 2px #904F16;
         }
 
         button:hover{
-            cursor: pointer;
+            // cursor: pointer;
             background-color: #F5F2E9;
         }
     }

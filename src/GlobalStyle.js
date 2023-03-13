@@ -6,4 +6,25 @@ export const GlobalStyled = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+
+    h1{
+        cursor: default;
+        font-family: 'Poppins';
+        font-size: 48px;
+        padding-left: 40px;
+        font-weight: 500;
+        color: #483838;
+        // background-color: #7B7774;
+    }
+
+    button{
+        box-shadow: 0px 0px 2px #904F16;
+        font-family:'Poppins';
+        font-weight: 500;
+        border-radius: 8px;
+    }
+
+    button:hover{
+        cursor: pointer;
+    }
     `

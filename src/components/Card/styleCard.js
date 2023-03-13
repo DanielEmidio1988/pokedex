@@ -99,38 +99,31 @@ export const CardContainer = styled.div`
         div:last-child{
             span{ 
                 display: flex;
-                margin-top: 0.5vw;
                 gap: 1vw;
+                margin-top: 0.5vw;
                 cursor: default;
             }
         }
 
         @media screen and (max-device-width: 500px){
             div{
-                padding-left: 4vw;
+                margin-left: 4vw;
                 flex-direction: column;
             }
 
-            div:last-child{
-                span{ 
-                    gap: 2vw;               
-                }
-            }
         }
     `
 
     export const CardType = styled.div`
-            padding: 0.1vw 0.4vw 0.1vw 0.4vw;
+            text-align: center;
+            width: 44px;
             font-size: 8px;
             background-color: ${props => props.color};
             border: 1.5px solid #F1EDDF;
-            border-radius: 6px;
+            border-radius: 4px;
             text-transform: uppercase; 
             box-shadow: 0px 0px 2px #904F16;
 
-            @media screen and (max-device-width: 500px){
-                font-size: 14px;
-            } 
         `
 
     export const CardFooter = styled.footer`
@@ -167,17 +160,14 @@ export const CardContainer = styled.div`
         width: 20%;
         min-height: 40px;
         height: 3vw;
-        border-radius: 8px;
         border: 1.5px solid #FFFFC4; 
         background-color: #F8ED91;
-        box-shadow: 0px 0px 2px #904F16;
         
         img{
             width: 60%;
         }
         
         :hover{
-            cursor:pointer;
             background-color: #F5CF6B;       
         }
 
@@ -193,17 +183,12 @@ export const CardContainer = styled.div`
         width: 70%;
         min-height: 40px;
         height: 3vw;
-        border-radius: 8px;
-        font-family: "Poppins";
         font-size: 16px;
         background-color: #FF6262;
         border: 1.5px solid #FEC2BA; 
         color: #904F16;
-        font-weight:400;
-        box-shadow: 0px 0px 2px #904F16;
 
         :hover{
-            cursor: pointer;
             background-color: #F44900;
             color: #F5CF6B;
         }
@@ -218,16 +203,12 @@ export const CardContainer = styled.div`
         min-height: 40px;
         height: 3vw;
         border-radius: 8px;
-        font-family: "Poppins";
         font-size: 16px;
         background-color: #ABEA51;
         border: 1.5px solid #E1F886;
         color: #588824;
-        font-weight:400;
-        box-shadow: 0px 0px 2px #904F16;
 
         :hover{
-            cursor: pointer;
             color: #E1F886;
             background-color: #AADD5C;
         }

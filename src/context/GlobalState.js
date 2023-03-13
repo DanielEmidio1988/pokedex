@@ -27,8 +27,6 @@ function GlobalState(){
 
   const [numbMin, setNumbMin] = useState(0)
 
-  const [searchHome, setSearchHome] = useState('')
-
   const [perPage, setPerPage] = useState(20)
 
   const [totalPages, setTotalPages] = useState(1)
@@ -67,7 +65,7 @@ function GlobalState(){
 
     }
 
-    console.log("Total Pages", totalPages)
+    // console.log("Total Pages", totalPages)
  
     //Daniel: função para acrescentar pokemon na Pokelist.
     function addPokemonPokedex (pokemonAdd){
@@ -123,8 +121,6 @@ function GlobalState(){
       setTotalPages,
       firstPkm,
       lastPkm,
-      searchHome, 
-      setSearchHome,
       numbMin, 
       setNumbMin,
     }

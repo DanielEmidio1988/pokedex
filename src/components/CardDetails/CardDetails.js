@@ -10,50 +10,6 @@ function CardDetails(props) {
     const context = useContext(GlobalContext)
     const [pokemon, setPokemon] = useState({})
 
-    const colorCard = ()=>{
-        const filterPokemonbyColor = pokemon && pokemon?.types?.map((type, i) => type.type?.name)[0]
-        switch (filterPokemonbyColor) {
-            case 'grass':
-            return '#70B873'  
-            case 'fire': 
-            return '#FF9D55'
-            case 'water':
-            return '#33A4F5'  
-            case 'poison':
-            return '#AD61AE'  
-            case 'flying':
-            return '#6892B0'   
-            case 'bug':
-            return '#91C12F'  
-            case 'normal':
-            return '#919AA2' 
-            case 'dark':
-            return '#5C5365'   
-            case 'dragon':
-            return '#0A6CBF'   
-            case 'ghost':
-            return '#8B4E8C'   
-            case 'electric':
-            return '#F8D030'   
-            case 'ground':
-            return '#E0C068'   
-            case 'fairy':
-            return '#EE99AC' 
-            case 'ice':
-            return '#98D8D8'            
-            case 'steel':
-            return '#B8B8D0' 
-            case 'fighting':
-            return '#CE4069'  
-            case 'psychic':
-            return '#F85888' 
-            case 'rock':
-            return '#729F92'                         
-            default:
-            return '#729F92'
-        }
-    }
-
     useEffect(()=>{
         browserCardPokemon()
     },[])
@@ -63,22 +19,20 @@ function CardDetails(props) {
             context.setIsLoading(true)
             const getPokemon = await axios.get(props.pokemonUrl)
             setPokemon(getPokemon.data)
-            console.log("PROPS", getPokemon)
-            console.log(pokemon)
+            // console.log("PROPS", getPokemon)
+            // console.log(pokemon)
             context.setIsLoading(false)
         } catch (error) {
             context.setIsLoading(false)
         }
     }
-
-    console.log("Props.Name", props.pokemonName)
-    
+  
     return (
       <>
     {context.isLoading ? <img src={pokeball} alt="Loading"/>
     :
     <MainCardDetails
-      colorCard={colorCard}>
+      >
 
         <BoxDetailsPokemon
         pokemon={pokemon}
