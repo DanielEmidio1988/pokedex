@@ -4,9 +4,6 @@
 
 A Pokedex é uma aplicação web que contém as principais informações dos 1008 pokemons, como: nome, tipo, movimentos, entre outros, utilizando a API [PokeApi](https://pokeapi.co/).
 
-| <img src="./src/assets/layoutdesktop.png" width=700><br> |
-| :---: |
-
 ## 🔗Link de Acesso
 - Deploy Vercel: [clique aqui!](https://pokedex-ruddy-tau-65.vercel.app/).
 
@@ -32,6 +29,11 @@ npm start
 
 | <img src="./src/assets/layoutMobile1.png" width=200><br><sub>Home Page</sub> | <img src="./src/assets/layoutMobile2.png" width=200><br><sub>Detalhes</sub> |
 | :---: | :---: |
+
+### Layout Desktop
+
+| <img src="./src/assets/layoutdesktop.png" width=600><br> |
+| :---: |
 
 
 ### Funcionalidades
