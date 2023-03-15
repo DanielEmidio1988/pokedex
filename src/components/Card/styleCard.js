@@ -217,7 +217,3 @@ export const CardContainer = styled.div`
             width: 40%;
         }
         `
-
-    export const Loading = styled.img`
-        width: 52px;    
-    `

@@ -14,13 +14,12 @@ function CardDetails(props) {
         browserCardPokemon()
     },[])
 
+    //Daniel: retornar informação individual do pokemon
     const browserCardPokemon = async ()=>{
         try {
             context.setIsLoading(true)
             const getPokemon = await axios.get(props.pokemonUrl)
             setPokemon(getPokemon.data)
-            // console.log("PROPS", getPokemon)
-            // console.log(pokemon)
             context.setIsLoading(false)
         } catch (error) {
             context.setIsLoading(false)

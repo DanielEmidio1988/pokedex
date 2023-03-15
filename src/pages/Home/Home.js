@@ -5,7 +5,6 @@ import Card from "../../components/Card/Card";
 import Header from "../../components/Header/Header";
 import { MainContainer, DisplayCards, SectionButtons } from "../../constants/stylePages";
 import Footer from "../../components/Footer/Footer";
-import FilterMenu from "../../components/Filter/Filter";
 import { goToNextHomePage } from "../../routes/coordinator";
 
 function Home() {
@@ -14,7 +13,6 @@ function Home() {
   const navigate= useNavigate()
   const params = useParams()
   const {pokemons, addPokemonPokedex}=context
-  const [filter, setFilter] = useState(false)
   const [search, setSearch] = useState('')
   const filterPokemon = pokemons && pokemons
   .filter((pokemon)=> pokemon?.name?.includes(search.toLowerCase()))
@@ -47,18 +45,15 @@ function Home() {
       <>       
         <Header/>
           <MainContainer>
-          <div className={filter || context.showModal ? 'menu-overlay-open' : 'menu-overlay-close'}></div> 
+          <div className={context.showModal ? 'menu-overlay-open' : 'menu-overlay-close'}></div> 
           <div className="boxFilter">
-            <input value={search} onChange={(event)=>setSearch(event.target.value)} placeholder="Insira a ID ou nome do Pokemon"/>
-            <button onClick={()=>setFilter(true)}>Filtros</button>
-            <FilterMenu filter={filter} setFilter={setFilter}/>
+            <input value={search} onChange={(event)=>setSearch(event.target.value)} placeholder="Insira o nome do Pokemon"/>
           </div>
           <div>
             <h1>Todos Pokemons</h1>
           </div>
           <DisplayCards>
-            {filterPokemon
-            
+            {filterPokemon    
             .map((pokemon)=>( 
             <Card
             addPokemonPokedex={addPokemonPokedex}

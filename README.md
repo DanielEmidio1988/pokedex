@@ -1,42 +1,68 @@
-# Pokedex
+# Pokedex ![PokeBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png)
 
-## Introdução ![PokeBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png)
+## 📖 Introdução 
 
-A Pokedex é uma aplicação web que contém as principais informações dos 1008 pokemons existentes, consumindo a API [PokeApi](https://pokeapi.co/).
+A Pokedex é uma aplicação web que contém as principais informações dos 1008 pokemons, como: nome, tipo, movimentos, entre outros, utilizando a API [PokeApi](https://pokeapi.co/).
 
-Para acessar o projeto, [clique aqui!](https://pokedex-ruddy-tau-65.vercel.app/).
+| [<img src="./src/assets/layoutdesktop.png" width=300><br><sub>Detalhes</sub>](https://github.com/DanielEmidio1988) |
+| :---: |
+
+## 🔗Link de Acesso
+- Deploy Vercel: [clique aqui!](https://pokedex-ruddy-tau-65.vercel.app/).
+
+## 👥Equipe
+| [<img src="https://avatars.githubusercontent.com/u/111311678?v=4" width=115><br><sub>Daniel Emidio</sub>](https://github.com/DanielEmidio1988) |
+| :---: |
+
+## 🧭Status do Projeto
+- ⏳Concluido
+
+## 📄Concepção do Projeto
+
+### Instalando
+```bash
+# Instalando dependências
+npm install
+
+# executando o projeto
+npm start
+```
+
+### Layout Mobile
+
+| [<img src="./src/assets/layoutMobile1.png" width=300><br><sub>Home Page</sub>](https://github.com/DanielEmidio1988) | [<img src="./src/assets/layoutMobile2.png" width=300><br><sub>Detalhes</sub>](https://github.com/DanielEmidio1988) |
+| :---: | :---: |
 
 
-## Descrição ![MasterBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png)
-. Ao abrir a aplicação, você receberá o card de todos os 1008 pokemons, sendo 20 pokemons por página.
-. Cada card contém a função de Detalhes que exibirá informações detalhadas do Pokemon como Base Stats e Movimentos. Além disso, há a função de captura que permite Capturar os Pokemons que desejar e adicionar a sua Pokedex pessoal.
-. Aplicação totalmente responsiva em Desktop, Tablet e Celulares.
+### Funcionalidades
+. **Listagem:**: Listagem de todos os 1008 pokemons existentes, organizados por página (20 em cada);
+. **Filtro:**: Filtrar pokemon pelo nome;
+. **Detalhes:**: Cada card exibirá informações detalhadas como Base Stats (estatisticas) e Movimentos ao ser clicado;
+. **Captura**: Adicionar pokemons a sua Pokedex pessoal;
+. **Responsividade:** Aplicação totalmente responsiva para Desktop, Tablet e Celulares;
 
-## Status do Projeto ![UltraBall](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ultra-ball.png)
-⌛ Em Andamento: Linha Evolutiva(Página de Detalhes), Filtros (Página Principal), Comparação Entre Pokemons (Página de Detalhes)
+### Bibliotecas Utilizadas
 
-🔚 Concluído: Listagem 1008 pokemons, Responsividade, Atualização Estilização
+```bash
+styled-components
+axios
+react-router-dom
+```
 
-## Tecnologias ![RareCandy](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rare-candy.png)
+## 💡Programas utilizados:
+- VSCode
+
+## 💻Tecnologias 
 
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
-## Livrarias Utilizadas ![Pokedoll](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-doll.png)
-
-### Todo Sistema
-- npm install: Para instalação;
-- npm start: Para execução;
-
-### Front-End
-- npm install styled-components
-- npm install axios
-- npm install react-router-dom
-
-## Contato ![AirMail](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/air-mail.png)
+## 📫 Contato
 
 E-mail: emidio.daniel@hotmail.com
 

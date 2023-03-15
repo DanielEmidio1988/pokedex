@@ -10,9 +10,6 @@ function Pokedex() {
   const context = useContext(GlobalContext)
   const {pokedex}=context
 
-  console.log("pokedex", pokedex)
-  console.log("context", context.pokemons)
-
     return (
       <> 
         <Header/>
@@ -22,7 +19,6 @@ function Pokedex() {
             {pokedex && pokedex.map((pokemon)=>( 
             <Card
             key={pokemon.id}
-            // pokemon={pokemon}
             pokemonUrl={`${BASE_URL}/pokemon/${pokemon.id}`}
             />
             ))}

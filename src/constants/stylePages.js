@@ -6,16 +6,6 @@ export const MainContainer = styled.div`
     min-height: 128vh;
     background-color: #FCFAEB;
 
-    // h1{
-    //     cursor: default;
-    //     font-family: 'Poppins';
-    //     font-size: 48px;
-    //     padding-left: 40px;
-    //     font-weight: 500;
-    //     color: #483838;
-    //     // background-color: #7B7774;
-    // }
-
     h2{
         cursor: default;
         font-family: 'Poppins';
@@ -69,13 +59,25 @@ export const MainContainer = styled.div`
             border: 1.5px solid #904F16;
             background-color: #E6E7BF;
             height: 20px;
-            // box-shadow: 0px 0px 2px #904F16;
         }
 
         button:hover{
-            // cursor: pointer;
             background-color: #F5F2E9;
         }
+    }
+
+    .menu-overlay-close{
+        display: none;
+    }
+
+    .menu-overlay-open{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #000000;
+        opacity: 0.8;
     }
 
     @media screen and (max-device-width: 500px){
@@ -96,20 +98,6 @@ export const MainContainer = styled.div`
             }
         }
 
-    }
-
-    .menu-overlay-close{
-        display: none;
-    }
-
-    .menu-overlay-open{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: #000000;
-        opacity: 0.8;
     }
 `
 
@@ -152,14 +140,20 @@ export const SectionAbout = styled.section`
 
     @media screen and (max-device-width: 800px){
         flex-direction: column;
+        width: 100%;
 
         .boxImgIntro{
             width: 100%;
             margin: 4vh 0 4vh 0;
+
+            img{
+                width: 50%;
+                min-width: 100px;
+            }
         }
 
-        ..boxTextIntro{
-            width: 100%;
+        .boxTextIntro{
+            width: 90%;
         }
     }
 `
@@ -195,7 +189,6 @@ export const SectionButtons = styled.section`
         padding: 4vh 0 4vh 0;
         gap: 0;
         justify-content: space-evenly;
-
     }
     
 `

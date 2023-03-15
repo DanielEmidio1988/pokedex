@@ -16,7 +16,7 @@ function Details() {
     return (
       <> 
         <Header/>
-
+        
           <MainContainer>
           <div><h1>Detalhes</h1></div>
           <DisplayCards>
