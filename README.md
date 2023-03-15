@@ -4,7 +4,7 @@
 
 A Pokedex é uma aplicação web que contém as principais informações dos 1008 pokemons, como: nome, tipo, movimentos, entre outros, utilizando a API [PokeApi](https://pokeapi.co/).
 
-| [<img src="./src/assets/layoutdesktop.png" width=300><br><sub>Detalhes</sub>](https://github.com/DanielEmidio1988) |
+| <img src="./src/assets/layoutdesktop.png" width=700><br> |
 | :---: |
 
 ## 🔗Link de Acesso
@@ -30,16 +30,18 @@ npm start
 
 ### Layout Mobile
 
-| [<img src="./src/assets/layoutMobile1.png" width=300><br><sub>Home Page</sub>](https://github.com/DanielEmidio1988) | [<img src="./src/assets/layoutMobile2.png" width=300><br><sub>Detalhes</sub>](https://github.com/DanielEmidio1988) |
+| <img src="./src/assets/layoutMobile1.png" width=200><br><sub>Home Page</sub> | <img src="./src/assets/layoutMobile2.png" width=200><br><sub>Detalhes</sub> |
 | :---: | :---: |
 
 
 ### Funcionalidades
-. **Listagem:**: Listagem de todos os 1008 pokemons existentes, organizados por página (20 em cada);
-. **Filtro:**: Filtrar pokemon pelo nome;
-. **Detalhes:**: Cada card exibirá informações detalhadas como Base Stats (estatisticas) e Movimentos ao ser clicado;
-. **Captura**: Adicionar pokemons a sua Pokedex pessoal;
-. **Responsividade:** Aplicação totalmente responsiva para Desktop, Tablet e Celulares;
+```bash
+. Listagem: Listagem de todos os 1008 pokemons existentes, organizados por página (20 em cada);
+. Filtro: Filtrar pokemon pelo nome;
+. Detalhes: Cada card exibirá informações detalhadas como Base Stats (estatisticas) e Movimentos ao ser clicado;
+. Captura: Adicionar pokemons a sua Pokedex pessoal;
+. Responsividade: Aplicação totalmente responsiva para Desktop, Tablet e Celulares;
+```
 
 ### Bibliotecas Utilizadas
 
