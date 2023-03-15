@@ -1,9 +1,10 @@
 import logo from "../../assets/logo-pokedex.svg"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {MainHeader, MenuNav} from "./styleHeader"
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { goToPokedex, goToHome, goToAbout } from "../../routes/coordinator";
 import { GlobalContext } from "../../context/GlobalContext";
+import menuhamburguer from "../../assets/menu.svg"
 
 function Header() {
 
@@ -12,31 +13,11 @@ function Header() {
   const context = useContext(GlobalContext)
   const params = useParams()
   const pokeName = params.PokemonName
-
-  const thisPokemon = context.detailPokemon.find(pokemon => pokemon.name === pokeName)
-  const isInPokedex = context.pokedex.find(pokemon => pokemon.name === pokeName)
-
-//Daniel: callback searchPokedex será aplicada dentro da página de detalhes
-  const searchPokedex = ()=>{
-    switch (location.pathname) {
-      case "/":
-        return <></> 
-      case `/${pokeName}`:
-        return(
-          <>
-        {isInPokedex?
-        <button onClick={()=>{context.removePokemonPokedex(thisPokemon)}}>LIBERAR</button>
-          :
-        <button onClick={()=>{context.addPokemonPokedex(thisPokemon)}}>CAPTURAR</button>}
-        </>
-      )  
-      default:
-        return <></>;
-    }
-  }
+  const [menu, setMenu] = useState(false)
 
     return (
         <MainHeader>
+        <div className={menu ? 'menu-overlay-open' : 'menu-overlay-close'} onClick={()=>setMenu(false)}></div> 
           
           <section>
               <nav className="boxLogo">
@@ -101,6 +82,72 @@ function Header() {
                     :
                     ''
                     }                    
+              </nav>
+
+              <nav className="boxMenu-hamburguer">
+                {/* Daniel: Condicional para estilização do Header de acordo com a página atual */}
+                <div>
+                  <img src={menuhamburguer} alt="menu-pokedex" onClick={()=>setMenu(true)}/>
+                </div>
+                <div className={menu ? "menu-open" : "menu-close"} onClick={()=>setMenu(false)}>
+                    {location.pathname === "/" || location.pathname === `/${context.pageNumber}`  ?
+                    <>
+                    <MenuNav>                      
+                      <h1 onClick={()=>goToAbout(navigate)}>SOBRE</h1>
+                    </MenuNav>
+
+                    <MenuNav>      
+                      <h1 onClick={()=>goToPokedex(navigate)}>POKEDEX</h1>
+                    </MenuNav>
+                    </>    
+                    :
+                    ''
+                    }
+
+                    {location.pathname === "/pokedex" ?
+                    <>
+                    <MenuNav>                      
+                      <h1 onClick={()=>goToHome(navigate)}>PRINCIPAL</h1>
+                    </MenuNav>  
+                    <MenuNav>                      
+                      <h1 onClick={()=>goToAbout(navigate)}>SOBRE</h1>
+                    </MenuNav> 
+                    </>  
+                    :
+                    ''
+                    }
+
+                    {location.pathname === "/sobre" ?
+                    <>
+                    <MenuNav>                      
+                      <h1 onClick={()=>goToHome(navigate)}>PRINCIPAL</h1>
+                    </MenuNav>  
+                    <MenuNav>      
+                      <h1 onClick={()=>goToPokedex(navigate)}>POKEDEX</h1>
+                    </MenuNav>
+                    </>  
+                    :
+                    ''
+                    }
+
+                    {location.pathname === `/pokemon/${pokeName}` ?
+                    <>
+                    <MenuNav>                      
+                      <h1 onClick={()=>goToHome(navigate)}>PRINCIPAL</h1>
+                    </MenuNav> 
+
+                    <MenuNav>                      
+                      <h1 onClick={()=>goToAbout(navigate)}>SOBRE</h1>
+                    </MenuNav>
+
+                    <MenuNav>      
+                      <h1 onClick={()=>goToPokedex(navigate)}>POKEDEX</h1>
+                    </MenuNav>
+                    </>   
+                    :
+                    ''
+                    }
+                </div>                    
               </nav>
           </section>
             

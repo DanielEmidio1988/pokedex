@@ -13,11 +13,9 @@ export const FooterContainer = styled.div`
     
     section{
         width: 96%;
-        height: 90%;
-        // background-color: #F5CF6B;
+        height: 90%;     
         border-radius: 12px;
-        // padding-top: 2vh;
-        border: 1.5px solid #F5F2E9; //#904F16
+        border: 1.5px solid #F5F2E9;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -71,6 +69,5 @@ export const FooterContainer = styled.div`
                 }
             }
         }
-
     }
 `

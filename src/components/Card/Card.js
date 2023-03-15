@@ -3,8 +3,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { goToDetails } from "../../routes/coordinator";
 import axios from "axios";
-import { CardContainer, CardHeader, CardFooter, CardMain, CardType, SpriteOficialPokemon, ButtonDeletePokemon, AddPokemon, ButtonDetails, Loading } from "./styleCard";
-import pokeball from "../../assets/pokeball.gif"
+import { CardContainer, CardHeader, CardFooter, CardMain, CardType, SpriteOficialPokemon, ButtonDeletePokemon, AddPokemon, ButtonDetails} from "./styleCard";
 import search from "../../assets/search.svg"
 
 function Card(props) {
@@ -14,38 +13,18 @@ function Card(props) {
     const location = useLocation()
     const navigate = useNavigate()
 
-    // console.log("props.pokemonUrl", props.pokemonUrl)
-    // useEffect(()=>{
-    //     browserCardPokemon()
-    // },[context.pokemons, props])
-
     useEffect(()=>{
         ;(async () => {
             try {
                 context.setIsLoading(true)
                 const getPokemon = await axios.get(props.pokemonUrl)
-                //Usarei o console abaixo para identificar o que mais acrescentar no projeto.
-                // console.log(`${getPokemon.data.name}: `, getPokemon.data)
-                setPokemon(getPokemon.data)
+                setPokemon(getPokemon.data)              
                 context.setIsLoading(false)
             } catch (error) {
                 context.setIsLoading(false)
             }
         })()
     },[context, props])
-
-    // const browserCardPokemon = async ()=>{
-    //     try {
-    //         context.setIsLoading(true)
-    //         const getPokemon = await axios.get(props.pokemonUrl)
-    //         //Usarei o console abaixo para identificar o que mais acrescentar no projeto.
-    //         console.log(`${getPokemon.data.name}: `, getPokemon.data)
-    //         setPokemon(getPokemon.data)
-    //         context.setIsLoading(false)
-    //     } catch (error) {
-    //         context.setIsLoading(false)
-    //     }
-    // }
     
     return (
       <>
@@ -55,7 +34,7 @@ function Card(props) {
             <h3>Carregando...</h3>
         </CardHeader>
         <div className="loadingStatus">
-            <Loading src={pokeball} alt="Loading"/>
+            
         </div>
       </CardContainer>
       :

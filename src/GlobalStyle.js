@@ -14,7 +14,6 @@ export const GlobalStyled = createGlobalStyle`
         padding-left: 40px;
         font-weight: 500;
         color: #483838;
-        // background-color: #7B7774;
     }
 
     button{

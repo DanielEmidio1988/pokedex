@@ -40,19 +40,11 @@ function GlobalState(){
     browserPokemon()
   },[pageNumber])
 
+  //Daniel: retornar lista geral de pokemons
   const browserPokemon = async ()=>{
-    let i = 1  
-    setIsLoading(true)
-    
-    //Daniel: além de servir como apoio, ela elimina qualquer duplicidade de cadastro pelo Set.
-    // const auxPokemon = [...new Set(pokemons)]
-
+    setIsLoading(true)   
       try{        
           const response = await axios.get(`${BASE_URL}/pokemon/?limit=1008`)
-        //   auxPokemon.push(response.data.results)
-          // console.log("GlobalState", response.data.results)
-        // //   console.log("GlobalState AuxPokemon", auxPokemon)
-        // console.log("Total itens", typeof(response.data.results.length))
           setTotalPages(Math.ceil(response.data.results.length/perPage)+1)
           setPokemons(response.data.results)
           setDetailPokemon(response.data.results)    
@@ -60,26 +52,19 @@ function GlobalState(){
           console.log(`Erro!${error.data.name} não foi adicionado a base.`)
           console.log(error)
       }
-
       setIsLoading(false)
-
     }
 
-    // console.log("Total Pages", totalPages)
  
     //Daniel: função para acrescentar pokemon na Pokelist.
     function addPokemonPokedex (pokemonAdd){
       setShowModal(true)
       setAction("add")
-      // console.log("pokemonAdd", pokemonAdd)
       const pokemonOnList = pokemons.filter(
         (pokemon) => pokemon.name !== pokemonAdd.name)
         const newBrowserPokedex = [...pokedex, pokemonAdd]
         setPokedex(newBrowserPokedex)
         setPokemons(pokemonOnList)  
-   
-        // console.log("pokemonOnList", pokemonOnList)
-        // console.log("IdPokemon ADD", pokemonAdd)
     }
   
     //Daniel: remover pokemon da Pokedex
@@ -87,15 +72,10 @@ function GlobalState(){
       setShowModal(true)
       setAction("remove")
       const pokemonOnPokedex = pokedex.filter(
-        (pokemon) => pokemon.name !== pokemonAdd.name)
-      // const pokemonOnList = pokemons.filter(
-      //   (pokemon) => pokemon.name === pokemonAdd.name)    
+        (pokemon) => pokemon.name !== pokemonAdd.name)  
       const newBrowserPokelist = [...pokemons, {name:pokemonAdd.name, url:`${BASE_URL}/${pokemonAdd.id}`}]
       setPokedex(pokemonOnPokedex) 
       setPokemons(newBrowserPokelist) 
-      // console.log("pokemonAdd", pokemonAdd)
-      // console.log("pokemon", pokemons[0])
-      // console.log("pokemonOnList", pokemonOnList)
     }
   
     return{
@@ -123,6 +103,7 @@ function GlobalState(){
       lastPkm,
       numbMin, 
       setNumbMin,
+      browserPokemon,
     }
 }
 

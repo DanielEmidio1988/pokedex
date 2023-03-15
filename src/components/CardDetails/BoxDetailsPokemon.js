@@ -1,6 +1,5 @@
 import { useState, useContext, useEffect } from "react"
 import axios from "axios"
-import BoxEvolutionChain from "./BoxEvolutionChain"
 import { GlobalContext } from "../../context/GlobalContext"
 import { SectionBoxInfoPkm, BarStats, DisplayNameMove, DisplayBaseStats, DisplayMoves, ButtonStatusPokemon } from "./styleCardDetails"
 
@@ -11,37 +10,24 @@ function BoxDetailsPokemon (props){
         {module:"BaseStats",
         description:"BASE STATS",
         filter: true},
-        {module:"Evolution",
-        description:"EVOLUÇÃO", 
-        filter: false},
         {module:"Moves", 
         description:"MOVIMENTOS",
         filter: false}])
-    const [infoPokemon, setInfoPokemon] = useState({})
     const context = useContext(GlobalContext)
     const [descriptionPokemon, setDescriptionPokemon] = useState("")
-    const [evolutionChain, setEvolutionChain] = useState({})
-
 
     useEffect(()=>{
         browserDescriptionPokemon()
     },[])
 
-    const browserDescriptionPokemon = async()=>{
-        // const link = props
+    const browserDescriptionPokemon = async()=>{     
         try {
-                context.setIsLoading(true)
-                // const pokemonId = pokemon && pokemon?.id
+                context.setIsLoading(true) 
                 const getPokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${props.pokemonName}`)
-                // console.log("Link", link)
-                // console.log("DetailPokemon",getPokemon.data)
-                setInfoPokemon(getPokemon.data)
                 setDescriptionPokemon(getPokemon.data.flavor_text_entries[0].flavor_text)
-                setEvolutionChain(getPokemon.data.evolution_chain.url)
                 context.setIsLoading(false)
             } catch (error) {
                 console.log("DetailsPokemon", error)
-                // console.log("Link", link)
                 context.setIsLoading(false)
             }
         }
@@ -64,13 +50,9 @@ function BoxDetailsPokemon (props){
             setStatusPokemonModule(newStatus)
             }
         }
-        // console.log("infoPokemon", infoPokemon.flavor_text_entries)
-        // console.log("teste", evolutionChain)
 
     return(
-        <SectionBoxInfoPkm
-        // statusPokemon={statusPokemon}
-        >
+        <SectionBoxInfoPkm>
             <div className="introPokemon">
                 <div>
                     <h2>{props.pokemon?.name}</h2>
@@ -86,9 +68,6 @@ function BoxDetailsPokemon (props){
                     {statusPokemonModule.map((status)=>(
                         <ButtonStatusPokemon value={status.module} statusPokemon={status.filter} onClick={()=> switchPokemon(status)}>{status.description}</ButtonStatusPokemon>
                     ))}
-                    {/* <button value="Evolution" onClick={()=> setStatusPokemon("Evolution")}>Evolução</button>
-                    <button value="BaseStats" onClick={()=> setStatusPokemon("BaseStats")}>Base Stats</button>
-                    <button value="Moves" onClick={()=> setStatusPokemon("Moves")}>Movimentos</button> */}
                 </div>
                 <div className="boxResultFilter">
                     {statusPokemon === "Moves" ?
@@ -98,11 +77,6 @@ function BoxDetailsPokemon (props){
                                 {props.pokemon?.moves && props.pokemon?.moves.filter((move,i) => i < 4).map((move)=> { return (<DisplayMoves>{move.move.name}</DisplayMoves>)})}
                             </div>
                         </DisplayNameMove>
-                    :
-                    statusPokemon === "Evolution"?
-                    <BoxEvolutionChain
-                    evolutionChain={evolutionChain}
-                    statusPokemon={statusPokemon}/>
                     :
                         <DisplayBaseStats>
                         <div>

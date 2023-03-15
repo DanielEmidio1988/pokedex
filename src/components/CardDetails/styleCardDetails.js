@@ -35,6 +35,18 @@ export const MainCardDetails = styled.div`
         .boxDetailsShowPokemon{
             width: 100%;
             margin: 12vh 0 4vh 0;
+            
+
+            div:first-child{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    width: 80%;
+                }
+            }
+
         }
 
     }
